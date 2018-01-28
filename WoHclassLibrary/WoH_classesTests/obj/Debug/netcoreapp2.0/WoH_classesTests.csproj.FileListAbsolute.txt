@@ -1,0 +1,9 @@
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoH_classesTests.deps.json
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoH_classesTests.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.csprojResolveAssemblyReference.cache
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.AssemblyInfoInputs.cache
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.AssemblyInfo.cs
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\Mono.Cecil.dll
