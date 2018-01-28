@@ -1,0 +1,13 @@
+﻿Turn order:
+1st Phase (pre phase)
+---Buffs and preshots
+2nd Phase 
+---Start of moves
+3rd Phase
+---Fights end of moves
+4th Phase (post phase)
+---Shots
+5th Phase
+---Start of 2nd moves
+6th Phase
+---2nd Fights and end of 2nd moves 
