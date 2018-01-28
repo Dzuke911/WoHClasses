@@ -7,3 +7,10 @@ C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug
 C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
 C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
 C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\Mono.Cecil.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoH_classesTests.runtimeconfig.json
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoH_classesTests.runtimeconfig.dev.json
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoH_classesTests.pdb
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\obj\Debug\netcoreapp2.0\WoH_classesTests.pdb
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoHclassLibrary.dll
+C:\Users\User\Source\Repos\WoHClasses\WoHclassLibrary\WoH_classesTests\bin\Debug\netcoreapp2.0\WoHclassLibrary.pdb

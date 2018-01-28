@@ -1634,6 +1634,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "WoHclassLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/WoHclassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WoHclassLibrary.dll": {}
+        }
       }
     }
   },
@@ -5625,6 +5635,11 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "WoHclassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../WoHclassLibrary/WoHclassLibrary.csproj",
+      "msbuildProject": "../WoHclassLibrary/WoHclassLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5632,7 +5647,8 @@
       "Microsoft.NET.Test.Sdk >= 15.5.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "NUnit >= 3.9.0",
-      "NUnit3TestAdapter >= 3.9.0"
+      "NUnit3TestAdapter >= 3.9.0",
+      "WoHclassLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5670,7 +5686,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj": {
+              "projectPath": "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

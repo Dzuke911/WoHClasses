@@ -6,11 +6,11 @@ namespace WoHclassLibrary
 {
     public enum HexagonPosition
     {
-        TopLeft,
-        Left,
-        BottomLeft,
+        Top,
         TopRight,
-        Right,
-        BottomRight
+        BottomRight,
+        Bottom,
+        BottomLeft,
+        TopLeft
     }
 }
