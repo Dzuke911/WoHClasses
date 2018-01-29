@@ -29,7 +29,7 @@ namespace WoH_classesTests
         [TestCase(0, 2, HexagonPosition.Bottom, 0, 1)]
         [TestCase(0, 2, HexagonPosition.BottomLeft, -1, 1)]
         [TestCase(0, 2, HexagonPosition.TopLeft, -1, 2)]
-        public void Hexagon_GetNearby(int x, int y, HexagonPosition pos, int xRes, int yRes)
+        public void Hexagon_GetNearbyCoords(int x, int y, HexagonPosition pos, int xRes, int yRes)
         {
             //Arrange
             Hexagon hex = new Hexagon(x, y);
@@ -41,6 +41,26 @@ namespace WoH_classesTests
             //Assert
             Assert.AreEqual(xRes, xNew);
             Assert.AreEqual(yRes, yNew);
+        }
+
+        [Test]
+        public void Hexagon_GetNearbyCoordsArray()
+        {
+            //Arrange
+            Hexagon hex = new Hexagon(1, 1);
+            Coords[] expected = new Coords[] { new Coords(1,2), new Coords(2, 2), new Coords(2, 1), new Coords(1, 0), new Coords(0, 1), new Coords(0, 2) };
+
+
+            //Act
+            Coords[] result = hex.GetNearbyCoordsArray();
+
+            //Assert
+            Assert.AreEqual(expected.Length, result.Length);
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.AreEqual(expected[i].X, result[i].X);
+                Assert.AreEqual(expected[i].Y, result[i].Y);
+            }
         }
     }
 }

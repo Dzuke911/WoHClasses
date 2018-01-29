@@ -46,5 +46,18 @@ namespace WoHclassLibrary
                     throw new InvalidOperationException("Unknown nearby hexagon");
             }
         }
+
+        public Coords[] GetNearbyCoordsArray()
+        {
+            return new Coords[] 
+            {
+                GetNearbyCoords(HexagonPosition.Top),
+                GetNearbyCoords(HexagonPosition.TopRight),
+                GetNearbyCoords(HexagonPosition.BottomRight),
+                GetNearbyCoords(HexagonPosition.Bottom),
+                GetNearbyCoords(HexagonPosition.BottomLeft),
+                GetNearbyCoords(HexagonPosition.TopLeft),
+            };
+        }
     }
 }
