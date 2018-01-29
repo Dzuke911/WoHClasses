@@ -1,9 +1,0 @@
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\bin\Debug\netcoreapp2.0\WoHclassLibrary.deps.json
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\bin\Debug\netcoreapp2.0\WoHclassLibrary.dll
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\bin\Debug\netcoreapp2.0\WoHclassLibrary.pdb
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.csprojResolveAssemblyReference.cache
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.AssemblyInfoInputs.cache
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.AssemblyInfo.cs
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.dll
-C:\Users\Dzuke\Source\Repos\WoHClasses\WoHclassLibrary\WoHclassLibrary\obj\Debug\netcoreapp2.0\WoHclassLibrary.pdb

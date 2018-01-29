@@ -9,6 +9,8 @@ namespace WoHclassLibrary
 
         public Coords Coord { get; }
 
+        public Hexagon[] Nearby = new Hexagon[6];
+
         public Hexagon(int x, int y)
         {
             Coord = new Coords(x, y);
