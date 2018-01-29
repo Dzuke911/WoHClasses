@@ -5652,8 +5652,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\Dzuke\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -5662,33 +5662,33 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\WoH_classesTests.csproj",
+      "projectUniqueName": "C:\\Users\\Dzuke\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\WoH_classesTests.csproj",
       "projectName": "WoH_classesTests",
-      "projectPath": "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\WoH_classesTests.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\obj\\",
+      "projectPath": "C:\\Users\\Dzuke\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\WoH_classesTests.csproj",
+      "packagesPath": "C:\\Users\\Dzuke\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dzuke\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoH_classesTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Dzuke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj": {
-              "projectPath": "C:\\Users\\User\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj"
+            "C:\\Users\\Dzuke\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj": {
+              "projectPath": "C:\\Users\\Dzuke\\Source\\Repos\\WoHClasses\\WoHclassLibrary\\WoHclassLibrary\\WoHclassLibrary.csproj"
             }
           }
         }
