@@ -5,11 +5,7 @@ namespace WoHclassLibrary
 {
     public class Hexagon
     {
-        public int ID { get; }
-
         public Coords Coord { get; }
-
-        public Hexagon[] Nearby = new Hexagon[6];
 
         public Hexagon(int x, int y)
         {
