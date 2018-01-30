@@ -8,15 +8,12 @@ namespace WoHclassLibrary
     {
         private List<Coords> temp = new List<Coords>();
         private List<Coords> nextTemp = new List<Coords>();
-        private Dictionary<Coords, Hexagon> hexes;
+        private Map map = new Map();
 
         public Map CreateRound(int r)
         {
-            Map ret = new Map();
-            hexes = ret.Hexes;
-
             Hexagon center = new Hexagon(0, 0);
-            hexes.Add(center.Coord, center);
+            map.AddHex(center);
             nextTemp.Add(center.Coord);
             //r--;
 
@@ -35,21 +32,20 @@ namespace WoHclassLibrary
                 }
                 r--;
             }
-
-            return ret;
+            return map;
         }
 
         private void createNearbyHexes(Coords coords)
         {
-            Coords[] newCoords = hexes.GetValueOrDefault(coords).GetNearbyCoordsArray();
+            Coords[] newCoords = map.GetHex(coords).GetNearbyCoordsArray();
             Hexagon newHex;
 
             foreach (Coords c in newCoords)
             {
-                if(hexes.ContainsKey(c))
+                if(!map.ContainsHex(c))
                 {
                     newHex = new Hexagon(c.X, c.Y);
-                    hexes.Add(c,newHex);
+                    map.AddHex(newHex);
                     nextTemp.Add(c);
                 }
             }

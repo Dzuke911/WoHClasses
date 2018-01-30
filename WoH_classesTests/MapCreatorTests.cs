@@ -9,17 +9,18 @@ namespace WoH_classesTests
     [TestFixture]
     class MapCreatorTests
     {
-        [Test]
-        public void MapCreator_CreateRound()
+        [TestCase(3,37)]
+        [TestCase(4, 61)]
+        public void MapCreator_CreateRound(int radius, int result)
         {
             //Arrange
             MapCreator mc = new MapCreator();
 
             //Act
-            Map map = mc.CreateRound(3);
+            Map map = mc.CreateRound(radius);
 
             //Assert
-            Assert.AreEqual(18,map.Hexes.Count);
+            Assert.AreEqual(result,map.Count());
         }
     }
 }

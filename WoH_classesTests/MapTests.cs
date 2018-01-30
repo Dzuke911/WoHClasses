@@ -17,7 +17,6 @@ namespace WoH_classesTests
 
             //Assert
             Assert.NotNull(map);
-            Assert.NotNull(map.Hexes);
         }
 
         [Test]
@@ -27,7 +26,19 @@ namespace WoH_classesTests
             Map map = new Map();
 
             //Assert
-            Assert.AreEqual(null, map.GetHex(new Coords(0, 0)));
+            var ex = Assert.Throws<InvalidOperationException>(()=>map.GetHex(new Coords(0,0)));
+            Assert.AreEqual(MapExceptions.MapNotContainHex,ex.Message);
+        }
+
+        [Test]
+        public void Map_GetHex_NullArgFail()
+        {
+            //Act
+            Map map = new Map();
+
+            //Assert
+            var ex = Assert.Throws<InvalidOperationException>(() => map.GetHex(null));
+            Assert.AreEqual("Parameter name:c", ex.Message);
         }
     }
 }

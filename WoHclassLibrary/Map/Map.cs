@@ -16,47 +16,58 @@ namespace WoHclassLibrary
 
         public Hexagon GetHex( Coords c)
         {
-            return hexes.Single(h=>(h.Coord.X == c.X && h.Coord.Y == c.Y));
-        }
-
-        public bool AddHex(Hexagon hex)
-        {
-            if (IsHex(hex.Coord))
-                return false;
-            else
+            if (c == null)
+                throw new ArgumentNullException(nameof(c));
+            foreach (Hexagon h in hexes)
             {
-                hexes.Add(hex);
-                return true;
+                if (h.Coord.X == c.X && h.Coord.Y == c.Y)
+                    return h;
             }
+            throw new InvalidOperationException(MapExceptions.MapNotContainHex);
         }
 
-        public bool RemoveHex(Hexagon hex)
+        public void AddHex(Hexagon hex)
         {
-            if (IsHex(hex.Coord))
+            if (hex == null)
+                throw new ArgumentNullException(nameof(hex));
+            if (ContainsHex(hex.Coord))
+                throw new InvalidOperationException(MapExceptions.MapAlreadyContainHex);
+            else
+                hexes.Add(hex);
+        }
+
+        public void RemoveHex(Hexagon hex)
+        {
+            if (hex == null)
+                throw new ArgumentNullException(nameof(hex));
+            if (ContainsHex(hex.Coord))
             {
                 hexes.Remove(hex);
-                return false;
             }
-            else   
-                return false;
+            else
+                throw new InvalidOperationException(MapExceptions.MapNotContainHex);
         }
 
-        public bool IsHex( Coords c)
+        public bool ContainsHex( Coords c)
         {
-            try
+            if (c == null)
+                throw new ArgumentNullException(nameof(c));
+            foreach (Hexagon h in hexes)
             {
-                Hexagon hex = hexes.Single(h => (h.Coord.X == c.X && h.Coord.Y == c.Y));
-                return true;
+                if (h.Coord.X == c.X && h.Coord.Y == c.Y)
+                    return true;
             }
-            catch
-            {
-                return false;
-            }
+            return false;
         }
 
-        public void clearHexes()
+        public void ClearHexes()
         {
             hexes.Clear();
+        }
+
+        public int Count()
+        {
+            return hexes.Count;
         }
     }
 }
