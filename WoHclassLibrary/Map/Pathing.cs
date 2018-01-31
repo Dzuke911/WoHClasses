@@ -20,7 +20,7 @@ namespace WoHclassLibrary
             }
             set
             {
-                mainUnits = Math.Min(2, Math.Max(0, MainUnits));
+                mainUnits = Math.Min(2, Math.Max(0, value));
             }
         }
 
@@ -28,11 +28,11 @@ namespace WoHclassLibrary
         {
             get
             {
-                return SupportUnits;
+                return supportUnits;
             }
             set
             {
-                supportUnits = Math.Min(2, Math.Max(0, SupportUnits));
+                supportUnits = Math.Min(2, Math.Max(0, value));
             }
         }
 

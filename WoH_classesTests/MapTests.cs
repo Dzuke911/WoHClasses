@@ -37,8 +37,8 @@ namespace WoH_classesTests
             Map map = new Map();
 
             //Assert
-            var ex = Assert.Throws<InvalidOperationException>(() => map.GetHex(null));
-            Assert.AreEqual("Parameter name:c", ex.Message);
+            var ex = Assert.Throws<ArgumentNullException>(() => map.GetHex(null));
+            Assert.AreEqual($"Value cannot be null.{Environment.NewLine}Parameter name: c", ex.Message);
         }
     }
 }

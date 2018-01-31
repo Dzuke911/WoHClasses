@@ -67,7 +67,7 @@ namespace WoH_classesTests
             Pathing pathing = new Pathing();
 
             //Act
-            pathing.MainUnits = suppU;
+            pathing.SupportUnits = suppU;
 
             //Assert
             Assert.AreEqual(suppUResult, pathing.SupportUnits);
