@@ -6,10 +6,12 @@ namespace WoHclassLibrary
     public class Hexagon
     {
         public Coords Coord { get; }
+        public Pathing Paths { get; }
 
         public Hexagon(int x, int y)
         {
             Coord = new Coords(x, y);
+            Paths = new Pathing();
         }
 
         public Coords GetNearbyCoords(HexagonPosition nearby)

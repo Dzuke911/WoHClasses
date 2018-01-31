@@ -11,6 +11,7 @@ namespace WoH_classesTests
     {
         [TestCase(3,37)]
         [TestCase(4, 61)]
+        [TestCase(5, 91)]
         public void MapCreator_CreateRound(int radius, int result)
         {
             //Arrange
