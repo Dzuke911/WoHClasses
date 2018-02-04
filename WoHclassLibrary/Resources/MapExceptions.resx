@@ -123,7 +123,7 @@
   <data name="MapNotContainHex" xml:space="preserve">
     <value>"The map doesn`t contains this hex."</value>
   </data>
-  <data name="String3" xml:space="preserve">
-    <value>"The map doesn`t contain this hex."</value>
+  <data name="UnknownHexagonPositionToInt" xml:space="preserve">
+    <value>"Can`t convert this hexagon position to int."</value>
   </data>
 </root>

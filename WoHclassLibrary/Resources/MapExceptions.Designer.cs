@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WoHclassLibrary {
+namespace WoHclassLibrary.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WoHclassLibrary {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoHclassLibrary.Map.MapExceptions", typeof(MapExceptions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoHclassLibrary.Resources.MapExceptions", typeof(MapExceptions).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -79,11 +79,11 @@ namespace WoHclassLibrary {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;The map doesn`t contain this hex.&quot;.
+        ///   Looks up a localized string similar to &quot;Can`t convert this hexagon position to int.&quot;.
         /// </summary>
-        public static string String3 {
+        public static string UnknownHexagonPositionToInt {
             get {
-                return ResourceManager.GetString("String3", resourceCulture);
+                return ResourceManager.GetString("UnknownHexagonPositionToInt", resourceCulture);
             }
         }
     }

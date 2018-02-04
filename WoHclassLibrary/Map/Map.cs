@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using WoHclassLibrary.Resources;
 
 namespace WoHclassLibrary
 {
@@ -68,6 +69,24 @@ namespace WoHclassLibrary
         public int Count()
         {
             return hexes.Count;
+        }
+
+        public void ConnectNearbyHexes()
+        {
+  /*          foreach(Hexagon hex in hexes)
+            {
+                Coords[] coords = hex.GetNearbyCoordsArray();
+
+                foreach (Coords c in newCoords)
+                {
+                    if (ContainsHex(c))
+                    {
+                        newHex = new Hexagon(c.X, c.Y);
+                        map.AddHex(newHex);
+                        nextTemp.Add(c);
+                    }
+                }
+            } */
         }
     }
 }

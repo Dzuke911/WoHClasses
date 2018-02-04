@@ -7,11 +7,13 @@ namespace WoHclassLibrary
     {
         public Coords Coord { get; }
         public Pathing Paths { get; }
+        public Hexagon[] Nearby { get; }
 
         public Hexagon(int x, int y)
         {
             Coord = new Coords(x, y);
             Paths = new Pathing();
+            Nearby = new Hexagon[6] { null, null, null, null, null, null };
         }
 
         public Coords GetNearbyCoords(HexagonPosition nearby)

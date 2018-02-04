@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using WoHclassLibrary;
+using WoHclassLibrary.Resources;
 
 namespace WoH_classesTests
 {

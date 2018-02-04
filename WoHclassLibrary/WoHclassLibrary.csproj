@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Map\MapExceptions.Designer.cs">
+    <Compile Update="Resources\MapExceptions.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MapExceptions.resx</DependentUpon>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Map\MapExceptions.resx">
+    <EmbeddedResource Update="Resources\MapExceptions.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MapExceptions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
