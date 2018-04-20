@@ -34,6 +34,7 @@ namespace WoH_classesTests
         [Test]
         public void Map_GetHex_NullArgFail()
         {
+
             //Act
             Map map = new Map();
 
