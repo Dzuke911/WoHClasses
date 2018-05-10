@@ -32,5 +32,13 @@ namespace WoH_classes.Maps
         {
             throw new NotImplementedException();
         }
+
+        private void CreateNearHexes(Map<T> map,T baseHex, List<T> nextCircle)
+        {
+            foreach(HexDirection hd in HexDirection.SixDirections() )
+            {
+
+            }
+        }
     }
 }

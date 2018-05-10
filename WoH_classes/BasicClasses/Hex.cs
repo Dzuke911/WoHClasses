@@ -40,7 +40,7 @@ namespace WoH_classes.BasicClasses
                     return new Coords ( Coords.X - 1, Coords.X % 2 == 0 ? Coords.Y  : Coords.Y + 1 );
 
                 default :
-                    throw new InvalidOperationException(CodeErrors.UnknownHexDirection);
+                    throw new NotImplementedException(CodeErrors.UnknownHexDirection);
             }
         }
     }
