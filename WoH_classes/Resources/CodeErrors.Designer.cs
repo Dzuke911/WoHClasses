@@ -70,6 +70,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can`t create Hex by reflection, Hex must be herited from BaseHex.
+        /// </summary>
+        internal static string InvalidHexType {
+            get {
+                return ResourceManager.GetString("InvalidHexType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown HexDirection.
         /// </summary>
         internal static string UnknownHexDirection {

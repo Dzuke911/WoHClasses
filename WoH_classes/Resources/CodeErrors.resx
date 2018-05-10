@@ -120,6 +120,9 @@
   <data name="InvalidHexCreation" xml:space="preserve">
     <value>Can`t create Hex</value>
   </data>
+  <data name="InvalidHexType" xml:space="preserve">
+    <value>Can`t create Hex by reflection, Hex must be herited from BaseHex</value>
+  </data>
   <data name="UnknownHexDirection" xml:space="preserve">
     <value>Unknown HexDirection</value>
   </data>

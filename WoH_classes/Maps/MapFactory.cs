@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
 using WoH_classes.Interfaces;
+using WoH_classes.Resources;
 
 namespace WoH_classes.Maps
 {
@@ -34,11 +36,25 @@ namespace WoH_classes.Maps
         }
 
         private void CreateNearHexes(Map<T> map,T baseHex, List<T> nextCircle)
-        {
-            foreach(HexDirection hd in HexDirection.SixDirections() )
+        {            
+            foreach( HexDirection hd in SixDirections.Get() )
             {
-
+                Coords coords = baseHex.GetNearbyHexCoords(hd);
+                T newHex = CreateT(coords);
+                map.AddHex( newHex );
             }
+        }
+
+        private T CreateT(Coords coords)
+        {
+            Type type = typeof(T);
+
+            ConstructorInfo ci = type.GetConstructor( new Type[] { typeof(Coords)} );
+
+            if (ci == null)
+                throw new InvalidOperationException(CodeErrors.InvalidHexType);
+
+            return (T)Activator.CreateInstance(typeof(T), coords);
         }
     }
 }

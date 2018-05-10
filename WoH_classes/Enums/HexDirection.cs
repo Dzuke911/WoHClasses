@@ -17,18 +17,6 @@ namespace WoH_classes.Enums
 
     public static class HexDirectionExtensions
     {
-        public static IEnumerable<HexDirection> SixDirections(this HexDirection hd)
-        {
-            return new HexDirection[] {
-                HexDirection.Top,
-                HexDirection.TopRight,
-                HexDirection.BottomRight,
-                HexDirection.Bottom,
-                HexDirection.BottomLeft,
-                HexDirection.TopLeft
-            };
-        }
-
         public static HexDirection GetOposite(this HexDirection hd)
         {
             switch (hd)
@@ -48,6 +36,21 @@ namespace WoH_classes.Enums
                 default:
                     throw new NotImplementedException(CodeErrors.UnknownHexDirection);
             }
+        }
+    }
+
+    public static class SixDirections
+    {
+        public static IEnumerable<HexDirection> Get()
+        {
+            return new HexDirection[] {
+                HexDirection.Top,
+                HexDirection.TopRight,
+                HexDirection.BottomRight,
+                HexDirection.Bottom,
+                HexDirection.BottomLeft,
+                HexDirection.TopLeft
+            };
         }
     }
 }
