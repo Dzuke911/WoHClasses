@@ -9,16 +9,19 @@ namespace WoH_classes.Interfaces
 {
     public abstract class BaseHex
     {
-        public  Coords Coords{ get; }
+        public Coords Coords{ get; }
+        public Dictionary<HexDirection,BaseHex> nearHexes { get; }
 
         public BaseHex(int x, int y)
         {
             Coords = new Coords(x, y);
+            nearHexes = new Dictionary<HexDirection, BaseHex>();
         }
 
         public BaseHex(Coords coords)
         {
             Coords = coords ?? throw new ArgumentNullException(nameof(coords), CodeErrors.InvalidHexCreation);
+            nearHexes = new Dictionary<HexDirection, BaseHex>();
         }
 
         public abstract Coords GetNearbyHexCoords(HexDirection hd);

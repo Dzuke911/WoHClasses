@@ -40,8 +40,14 @@ namespace WoH_classes.Maps
             foreach( HexDirection hd in SixDirections.Get() )
             {
                 Coords coords = baseHex.GetNearbyHexCoords(hd);
+
                 T newHex = CreateT(coords);
-                map.AddHex( newHex );
+
+                if(map.AddHex( newHex ))
+                {
+                    baseHex.nearHexes[hd] = newHex;
+                    newHex.nearHexes[hd.GetOposite()] = baseHex;
+                }
             }
         }
 
