@@ -11,8 +11,9 @@ namespace WoH_classes_Tests
     public class MapFactoryTests
     {
         [Theory]
-        [InlineData(1,7)]
-        [InlineData(2,19)]
+        [InlineData(0, 1)]
+        [InlineData(1, 7)]
+        [InlineData(2, 19)]
         [InlineData(3, 37)]
         public void CreateMapSuccess(int radius, int hexesCount)
         {
