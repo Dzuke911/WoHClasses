@@ -11,47 +11,89 @@ namespace WoH_classes.Maps
 {
     public class MapFactory<T> where T:BaseHex
     {
-        public Map<T> CreateMap(T center, MapShape shape, int x, int y)
+        public Map<T> CreateMap( MapShape shape, int x, int y = 0)
         {
             switch(shape)
             {
                 case MapShape.Circle:
-                    return CreateCircleMap(center, x);
+                    return CreateCircleMap(x );
                 case MapShape.Rectangle:
-                    return CreateRectMap(center, x, y);
+                    return CreateRectMap(x, y );
                 default:
                     throw new InvalidOperationException();
             }
         }
 
-        private Map<T> CreateCircleMap(T center,int radius)
+        private Map<T> CreateCircleMap(int radius)
         {
-            Map<T> res = new Map<T>(center);
-            return res;
+            T center = CreateHex(new Coords(0,0));
+
+            Map<T> resultMap = new Map<T>(center);
+
+            List<T> currentHexes = new List<T> { center };
+            List<T> newHexes = new List<T>();
+
+            for (int i=0; i<radius; i++)
+            {
+                foreach(T hex in currentHexes)
+                {
+                    CreateNearHexes(resultMap, hex, newHexes);
+                }
+
+                currentHexes = newHexes;
+                newHexes = new List<T>();
+            }
+
+            return resultMap;
         }
 
-        private Map<T> CreateRectMap(T center, int xMax, int yMax)
+        private Map<T> CreateRectMap(int xMax, int yMax)
         {
             throw new NotImplementedException();
+        }
+
+        private void ConnectToHexes( T hex , Map<T> map)
+        {
+            T targetHex;
+
+            foreach ( HexDirection hd in SixDirections.Get() )
+            {
+                targetHex = hex.nearHexes.GetValueOrDefault(hd) as T;
+
+                if (targetHex == null)
+                {
+                    targetHex = map.GetHex(hex.GetNearbyHexCoords(hd));
+                    if(targetHex != null )
+                    {
+                        hex.nearHexes.Add(hd, targetHex);
+                        targetHex.nearHexes.Add(hd.GetOposite(), hex);
+                    }
+                }
+            }
+
         }
 
         private void CreateNearHexes(Map<T> map,T baseHex, List<T> nextCircle)
         {            
             foreach( HexDirection hd in SixDirections.Get() )
             {
+                T newHex;
+
                 Coords coords = baseHex.GetNearbyHexCoords(hd);
 
-                T newHex = CreateT(coords);
-
-                if(map.AddHex( newHex ))
+                if( !map.IsHex(coords))
                 {
-                    baseHex.nearHexes[hd] = newHex;
-                    newHex.nearHexes[hd.GetOposite()] = baseHex;
-                }
+                    newHex = CreateHex(coords);
+
+                    map.AddHex(newHex);
+                    ConnectToHexes(newHex, map);
+
+                    nextCircle.Add(newHex);
+                }             
             }
         }
 
-        private T CreateT(Coords coords)
+        private T CreateHex(Coords coords)
         {
             Type type = typeof(T);
 

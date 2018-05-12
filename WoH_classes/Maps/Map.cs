@@ -9,7 +9,7 @@ namespace WoH_classes.Maps
 {
     public class Map<T> where T : BaseHex
     {
-        private readonly List<T> _hexes;
+        public readonly List<T> _hexes;
 
         private readonly T _center;
 
@@ -34,6 +34,16 @@ namespace WoH_classes.Maps
         public bool IsHex(Coords coords)
         {
             return _hexes.Exists(h => h.Coords.X == coords.X && h.Coords.Y == coords.Y);
+        }
+
+        public T GetHex(Coords coords)
+        {
+            return _hexes.SingleOrDefault(h => h.Coords.X == coords.X && h.Coords.Y == coords.Y);
+        }
+
+        public int GetHexesCount()
+        {
+            return _hexes.Count();
         }
     }
 }
