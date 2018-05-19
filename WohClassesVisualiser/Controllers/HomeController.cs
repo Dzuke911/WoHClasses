@@ -4,15 +4,29 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WoH_classes.BasicClasses;
+using WoH_classes.Enums;
+using WoH_classes.Maps;
 using WohClassesVisualiser.Models;
 
 namespace WohClassesVisualiser.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController(MapFactory<Hex> mapFactory)
+        {
+            _mapFactory = mapFactory;
+        }
+
+        private readonly MapFactory<Hex> _mapFactory;
+
         public IActionResult Index()
         {
-            return View();
+            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 8);
+
+            HomeModel model = new HomeModel() { Hexes = map.Hexes };
+
+            return View(model);
         }
 
         public IActionResult About()

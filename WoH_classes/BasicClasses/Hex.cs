@@ -9,11 +9,11 @@ namespace WoH_classes.BasicClasses
 {
     public class Hex : BaseHex
     {
-        public Hex( int x, int y): base(x,y)
+        public Hex( int x, int y, int id): base(x,y,id)
         {            
         }
 
-        public Hex( Coords coords) : base(coords)
+        public Hex( Coords coords, int id) : base(coords, id)
         {
         }
 

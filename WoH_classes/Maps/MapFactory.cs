@@ -26,7 +26,7 @@ namespace WoH_classes.Maps
 
         private Map<T> CreateCircleMap(int radius)
         {
-            T center = CreateHex(new Coords(0,0));
+            T center = CreateHex(new Coords(0,0),0);
 
             Map<T> resultMap = new Map<T>(center);
 
@@ -82,7 +82,7 @@ namespace WoH_classes.Maps
 
                 if( !map.IsHex(coords))
                 {
-                    newHex = CreateHex(coords);
+                    newHex = CreateHex(coords, map.Hexes.Count);
 
                     map.AddHex(newHex);
                     ConnectToHexes(newHex, map);
@@ -92,16 +92,16 @@ namespace WoH_classes.Maps
             }
         }
 
-        private T CreateHex(Coords coords)
+        private T CreateHex(Coords coords, int id)
         {
             Type type = typeof(T);
 
-            ConstructorInfo ci = type.GetConstructor( new Type[] { typeof(Coords)} );
+            ConstructorInfo ci = type.GetConstructor( new Type[] { typeof(Coords), typeof(int)} );
 
             if (ci == null)
                 throw new InvalidOperationException(CodeErrors.InvalidHexType);
 
-            return (T)Activator.CreateInstance(typeof(T), coords);
+            return (T)Activator.CreateInstance(typeof(T), coords , id);
         }
     }
 }

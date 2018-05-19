@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WoH_classes.BasicClasses;
+using WoH_classes.Maps;
 
 namespace WohClassesVisualiser
 {
@@ -22,6 +24,7 @@ namespace WohClassesVisualiser
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient( f => new MapFactory<Hex>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

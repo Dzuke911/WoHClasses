@@ -13,7 +13,7 @@ namespace WoH_classes_Tests
         public void ConstructorSuccess()
         {
             //Act
-            Hex h = new Hex(new Coords ( 1, -1 ));
+            Hex h = new Hex(new Coords ( 1, -1 ),1);
 
             //Assert
             Assert.NotNull(h);
@@ -23,7 +23,7 @@ namespace WoH_classes_Tests
         public void ConstructorFail_NullArgument()
         {
             //Assert
-            Assert.Throws<ArgumentNullException>("coords",() => { Hex h = new Hex(null); } );
+            Assert.Throws<ArgumentNullException>("coords",() => { Hex h = new Hex(null,1); } );
         }
 
         [Theory]
@@ -41,7 +41,7 @@ namespace WoH_classes_Tests
         [InlineData(-1, -1, HexDirection.TopLeft, -2, 0)]
         public void GetNearbyHexCoords(int x, int y, HexDirection hd, int resX, int resY)
         {
-            Hex h = new Hex(x, y);
+            Hex h = new Hex(x, y, 1);
 
             Coords c = h.GetNearbyHexCoords(hd);
 

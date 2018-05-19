@@ -11,17 +11,20 @@ namespace WoH_classes.Interfaces
     {
         public Coords Coords{ get; }
         public Dictionary<HexDirection,BaseHex> nearHexes { get; }
+        public int Id { get; }
 
-        public BaseHex(int x, int y)
+        public BaseHex(int x, int y, int id)
         {
             Coords = new Coords(x, y);
             nearHexes = new Dictionary<HexDirection, BaseHex>();
+            Id = id;
         }
 
-        public BaseHex(Coords coords)
+        public BaseHex(Coords coords, int id)
         {
             Coords = coords ?? throw new ArgumentNullException(nameof(coords), CodeErrors.InvalidHexCreation);
             nearHexes = new Dictionary<HexDirection, BaseHex>();
+            Id = id;
         }
 
         public abstract Coords GetNearbyHexCoords(HexDirection hd);
