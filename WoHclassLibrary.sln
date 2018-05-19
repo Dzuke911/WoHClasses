@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoH_classes", "WoH_classes\WoH_classes.csproj", "{473E5CA1-B28F-4484-9AD8-CB59ADF9B70A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WoH_classes", "WoH_classes\WoH_classes.csproj", "{473E5CA1-B28F-4484-9AD8-CB59ADF9B70A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoH_classes_Tests", "WoH_classes_Tests\WoH_classes_Tests.csproj", "{57974F2D-D455-4232-AAD4-10DE09F5128A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WoH_classes_Tests", "WoH_classes_Tests\WoH_classes_Tests.csproj", "{57974F2D-D455-4232-AAD4-10DE09F5128A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Woh_Visualiser", "WohClassesVisualiser\Woh_Visualiser.csproj", "{859745D0-BE45-4033-BD0A-60374708ABD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{57974F2D-D455-4232-AAD4-10DE09F5128A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57974F2D-D455-4232-AAD4-10DE09F5128A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57974F2D-D455-4232-AAD4-10DE09F5128A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{859745D0-BE45-4033-BD0A-60374708ABD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{859745D0-BE45-4033-BD0A-60374708ABD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{859745D0-BE45-4033-BD0A-60374708ABD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{859745D0-BE45-4033-BD0A-60374708ABD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

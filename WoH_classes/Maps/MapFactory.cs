@@ -70,7 +70,6 @@ namespace WoH_classes.Maps
                     }
                 }
             }
-
         }
 
         private void CreateNearHexes(Map<T> map,T baseHex, List<T> nextCircle)
