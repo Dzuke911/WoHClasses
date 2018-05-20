@@ -5,10 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\CodeErrors.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CodeErrors.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\GameStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GameStrings.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -16,6 +25,10 @@
     <EmbeddedResource Update="Resources\CodeErrors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CodeErrors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\GameStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

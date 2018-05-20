@@ -22,14 +22,14 @@ namespace WoH_classes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CodeErrors {
+    internal class GameStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CodeErrors() {
+        internal GameStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WoH_classes.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.CodeErrors", typeof(CodeErrors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.GameStrings", typeof(GameStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,20 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File doesn`t exists..
+        ///   Looks up a localized string similar to UnitTypeAttribute.
         /// </summary>
-        internal static string FileDoesntExists {
+        internal static string UnitTypeAttributes {
             get {
-                return ResourceManager.GetString("FileDoesntExists", resourceCulture);
+                return ResourceManager.GetString("UnitTypeAttributes", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can`t create Hex.
+        ///   Looks up a localized string similar to UnitType.
         /// </summary>
-        internal static string InvalidHexCreation {
+        internal static string UnitTypes {
             get {
-                return ResourceManager.GetString("InvalidHexCreation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Can`t create Hex by reflection, Hex must be herited from BaseHex.
-        /// </summary>
-        internal static string InvalidHexType {
-            get {
-                return ResourceManager.GetString("InvalidHexType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unknown HexDirection.
-        /// </summary>
-        internal static string UnknownHexDirection {
-            get {
-                return ResourceManager.GetString("UnknownHexDirection", resourceCulture);
+                return ResourceManager.GetString("UnitTypes", resourceCulture);
             }
         }
     }

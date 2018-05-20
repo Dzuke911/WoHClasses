@@ -117,16 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FileDoesntExists" xml:space="preserve">
-    <value>File doesn`t exists.</value>
+  <data name="UnitTypeAttributes" xml:space="preserve">
+    <value>UnitTypeAttribute</value>
   </data>
-  <data name="InvalidHexCreation" xml:space="preserve">
-    <value>Can`t create Hex</value>
-  </data>
-  <data name="InvalidHexType" xml:space="preserve">
-    <value>Can`t create Hex by reflection, Hex must be herited from BaseHex</value>
-  </data>
-  <data name="UnknownHexDirection" xml:space="preserve">
-    <value>Unknown HexDirection</value>
+  <data name="UnitTypes" xml:space="preserve">
+    <value>UnitType</value>
   </data>
 </root>
