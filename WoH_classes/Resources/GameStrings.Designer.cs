@@ -61,6 +61,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UnitName.
+        /// </summary>
+        internal static string UnitName {
+            get {
+                return ResourceManager.GetString("UnitName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UnitTypeAttribute.
         /// </summary>
         internal static string UnitTypeAttributes {

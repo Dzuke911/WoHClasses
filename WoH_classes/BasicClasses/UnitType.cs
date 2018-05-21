@@ -7,11 +7,11 @@ namespace WoH_classes.BasicClasses
 {
     public class UnitType : ObjectType
     {
+        public int[] AttributesID;
 
-
-        public UnitType(int id, string name) : base(id, name)
+        public UnitType(int id, string name, int[] attributesID) : base(id, name)
         {
-
+            AttributesID = attributesID;
         }
     }
 }

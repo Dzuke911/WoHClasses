@@ -88,6 +88,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknown UnitTypeAttribute.
+        /// </summary>
+        internal static string UnitTypeAttributeNotExist {
+            get {
+                return ResourceManager.GetString("UnitTypeAttributeNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown HexDirection.
         /// </summary>
         internal static string UnknownHexDirection {

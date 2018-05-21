@@ -21,7 +21,7 @@ namespace WoH_classes.Managers
                     return i;
             }
 
-            throw new InvalidOperationException();
+            throw new InvalidOperationException(CodeErrors.UnitTypeAttributeNotExist);
         }
 
         private UnitTypeAttributesManager(string[] attributes)
