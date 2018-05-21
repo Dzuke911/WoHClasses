@@ -4,9 +4,8 @@ using System.Text;
 
 namespace WoH_classes.Enums
 {
-    public enum GameStrings
+    public enum ConditionType
     {
-        UnitTypeAttribute,
-        UnitType
+        UnitHasAttribute
     }
 }
