@@ -88,6 +88,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map isn`t valid, center hex is null.
+        /// </summary>
+        internal static string MapNotCreated {
+            get {
+                return ResourceManager.GetString("MapNotCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown UnitTypeAttribute.
         /// </summary>
         internal static string UnitTypeAttributeNotExist {
