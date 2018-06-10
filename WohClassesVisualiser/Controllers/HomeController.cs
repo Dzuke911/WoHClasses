@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
 using WoH_classes.Maps;
@@ -27,6 +28,14 @@ namespace WohClassesVisualiser.Controllers
             HomeModel model = new HomeModel() { Hexes = map.Hexes };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public JsonResult Get()
+        {
+            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 8);
+
+            return Json(map.ToJson());
         }
 
         public IActionResult About()

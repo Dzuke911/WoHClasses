@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using WoH_classes.BasicClasses;
@@ -104,6 +105,19 @@ namespace WoH_classes_Tests
             //Assert
             Assert.Equal(X, res.X);
             Assert.Equal(Y, res.Y);
+        }
+
+        [Fact]
+        public void ToJsonSuccess()
+        {
+            //Arrange
+            MapFactory<Hex> mf = new MapFactory<Hex>();
+            Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
+
+            //Act
+            JObject obj = map.ToJson();
+            string str = obj.ToString();
+            Assert.Equal(1, 1);
         }
     }
 }

@@ -19,6 +19,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GameStrings.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\MapJsonStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MapJsonStrings.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +34,10 @@
     <EmbeddedResource Update="Resources\GameStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\MapJsonStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapJsonStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

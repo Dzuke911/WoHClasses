@@ -6,6 +6,7 @@
 
 <div class="row">
     <div class="col-sm-12">
+        <span id="HomeControllerUrl" style="display:none">@Url.Action("Get", "Home")</span>
         <img id="TestBgImage" src="~/images/WoHTestBackground.png" style="display:none; position:absolute" />
         <div id="BattlefieldFrame" class="BfFrame" style="position:relative;border: 3px solid #000;height:726px;width:1026px; overflow:scroll">
 
@@ -62,5 +63,9 @@
 </div>
 
 @section Scripts{
-    <script src=@Url.Content("~/js/TestBGImage.js")></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src=@Url.Content("~/js/Battlefield.jsx")></script>
+    <script src=@Url.Content("~/js/App.jsx")></script>
+    @*<script src=@Url.Content("~/js/TestBGImage.js")></script>*@
 }

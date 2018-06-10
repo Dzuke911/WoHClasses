@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using React.AspNet;
 using WoH_classes.BasicClasses;
 using WoH_classes.Maps;
 
@@ -21,10 +23,14 @@ namespace WohClassesVisualiser
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); //react
+            services.AddReact(); //react
             services.AddMvc();
             services.AddTransient( f => new MapFactory<Hex>());
+
+            return services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +45,9 @@ namespace WohClassesVisualiser
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseReact(config => { }); //react
+            app.UseDefaultFiles(); //react
 
             app.UseStaticFiles();
 

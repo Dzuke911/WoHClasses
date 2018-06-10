@@ -5,6 +5,7 @@ using WoH_classes.Interfaces;
 using System.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Resources;
+using Newtonsoft.Json.Linq;
 
 namespace WoH_classes.Maps
 {
@@ -20,7 +21,7 @@ namespace WoH_classes.Maps
             _center = hex;
             Hexes.Add(hex);
         }
-        
+
         public bool AddHex(T hex)
         {
             if (!IsHex(hex.Coords))
@@ -29,7 +30,7 @@ namespace WoH_classes.Maps
                 return true;
             }
 
-            return false;                
+            return false;
         }
 
         public bool IsHex(Coords coords)
@@ -50,7 +51,7 @@ namespace WoH_classes.Maps
         public int GetMaxX()
         {
             int result = _center != null ? _center.Coords.X : throw new InvalidOperationException(CodeErrors.MapNotCreated);
-            foreach(T hex in Hexes)
+            foreach (T hex in Hexes)
             {
                 if (result < hex.Coords.X)
                     result = hex.Coords.X;
@@ -99,6 +100,35 @@ namespace WoH_classes.Maps
         public Coords GetMapCenterOffset()
         {
             return new Coords(_center.Coords.X - GetMinX(), _center.Coords.Y - GetMinY());
+        }
+
+        public JObject ToJson()
+        {
+            JObject hex;
+            JArray hexes = new JArray();
+
+            foreach (T h in Hexes)
+            {
+                hex = new JObject(new JProperty(MapJsonStrings.HexId, h.Id),
+                    new JProperty(MapJsonStrings.XCoord, h.Coords.X),
+                    new JProperty(MapJsonStrings.YCoord, h.Coords.Y));
+                hexes.Add(hex);
+            }
+
+            int maxX = GetMaxX();
+            int minX = GetMinX();
+            int maxY = GetMaxY();
+            int minY = GetMinY();
+            int sizeX = maxX - minX + 1;
+            int sizeY = maxY - minY + 1;
+            int offsetX = _center.Coords.X - minX;
+            int offsetY = _center.Coords.Y - minY;
+
+            return new JObject(new JProperty(MapJsonStrings.Hexes, hexes),
+                    new JProperty(MapJsonStrings.LenghtY, sizeX),
+                    new JProperty(MapJsonStrings.LenghtX, sizeY),
+                    new JProperty(MapJsonStrings.OffsetY, offsetX),
+                    new JProperty(MapJsonStrings.OffsetX, offsetY));
         }
     }
 }
