@@ -26,8 +26,14 @@
     render() {
         let int = this.state.map.LenghtX;
         let hexes = this.state.map.Hexes;
+        console.log(hexes);
+        let X;
+        if (hexes != undefined) {
+            X = hexes[10].X;
+        }
         return <div>
             <p>{int}</p>
+            <p>{X}</p>
         </div>;
     }
 }
