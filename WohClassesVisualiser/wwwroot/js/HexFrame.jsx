@@ -11,7 +11,13 @@
         let xCoord = this.props.xCoord;
         let yCoord = this.props.yCoord;
 
-        this.props.onhexclick("hexInfo", "hexId=" + hexId + " ,x=" + xCoord + " ,y=" + yCoord);
+        this.props.onhexclick("hexInfo", "hexId=" + hexId + " ,x=" + xCoord + " ,y=" + yCoord + " ,near hexes = " +
+            this.props.topHexId + "," +
+            this.props.topRightHexId + "," +
+            this.props.bottomRightHexId + "," +
+            this.props.bottomHexId + "," +
+            this.props.bottomLeftHexId + "," +
+            this.props.topLeftHexId);
     }
 
     render() {

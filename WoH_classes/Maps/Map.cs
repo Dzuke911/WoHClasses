@@ -5,6 +5,7 @@ using WoH_classes.Interfaces;
 using System.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Resources;
+using WoH_classes.Enums;
 using Newtonsoft.Json.Linq;
 
 namespace WoH_classes.Maps
@@ -104,18 +105,21 @@ namespace WoH_classes.Maps
 
         public JObject ToJson()
         {
-            JObject hex;
+            JObject jsonHex;
             JArray hexes = new JArray();
-
-            T topHexId,topRightHexId,bottomRightHexId,bottomHexId,bottomLeftHexId,topLeftHexId;
 
             foreach (T h in Hexes)
             {
-                hex = new JObject(new JProperty(MapJsonStrings.HexId, h.Id),
+                jsonHex = new JObject(new JProperty(MapJsonStrings.HexId, h.Id),
                     new JProperty(MapJsonStrings.XCoord, h.Coords.X),
                     new JProperty(MapJsonStrings.YCoord, h.Coords.Y));
 
-                hexes.Add(hex);
+                foreach(HexDirection hd in SixDirections.Get())
+                {
+                    AddNearHex(jsonHex, h, hd);
+                }                
+
+                hexes.Add(jsonHex);
             }
 
             int maxX = GetMaxX();
@@ -132,6 +136,51 @@ namespace WoH_classes.Maps
                     new JProperty(MapJsonStrings.LengthX, sizeY),
                     new JProperty(MapJsonStrings.OffsetY, offsetX),
                     new JProperty(MapJsonStrings.OffsetX, offsetY));
+        }
+
+        private void AddNearHex(JObject obj, T hex, HexDirection hd)
+        {
+            if (obj == null)
+                throw new ArgumentNullException(nameof(obj));
+            if (hex == null)
+                throw new ArgumentNullException(nameof(hex));
+
+            string propertyName;
+
+            switch (hd)
+            {
+                case HexDirection.Top:
+                    propertyName = MapJsonStrings.TopHexId;
+                    break;
+                case HexDirection.TopRight:
+                    propertyName = MapJsonStrings.TopRightHexId;
+                    break;
+                case HexDirection.BottomRight:
+                    propertyName = MapJsonStrings.BottomRightHexId;
+                    break;
+                case HexDirection.Bottom:
+                    propertyName = MapJsonStrings.BottomHexId;
+                    break;
+                case HexDirection.BottomLeft:
+                    propertyName = MapJsonStrings.BottomLeftHexId;
+                    break;
+                case HexDirection.TopLeft:
+                    propertyName = MapJsonStrings.TopLeftHexId;
+                    break;
+                default:
+                    throw new InvalidOperationException(CodeErrors.UnknownHexDirection);
+            }
+
+            BaseHex bufferHex;
+
+            if (hex.nearHexes.TryGetValue(hd, out bufferHex))
+            {
+                obj.Add(new JProperty(propertyName, bufferHex.Id));
+            }
+            else
+            {
+                obj.Add(new JProperty(propertyName, -1));
+            }
         }
     }
 }
