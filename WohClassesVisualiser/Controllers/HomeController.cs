@@ -23,7 +23,7 @@ namespace WohClassesVisualiser.Controllers
 
         public IActionResult Index()
         {
-            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 3);
+            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
 
             HomeModel model = new HomeModel() { Hexes = map.Hexes };
 
@@ -33,7 +33,7 @@ namespace WohClassesVisualiser.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 3);
+            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
 
             return Json(map.ToJson());
         }

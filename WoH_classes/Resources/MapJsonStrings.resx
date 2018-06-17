@@ -123,11 +123,11 @@
   <data name="HexId" xml:space="preserve">
     <value>ID</value>
   </data>
-  <data name="LenghtX" xml:space="preserve">
-    <value>LenghtX</value>
+  <data name="LengthX" xml:space="preserve">
+    <value>LengthX</value>
   </data>
-  <data name="LenghtY" xml:space="preserve">
-    <value>LenghtY</value>
+  <data name="LengthY" xml:space="preserve">
+    <value>LengthY</value>
   </data>
   <data name="OffsetX" xml:space="preserve">
     <value>OffsetX</value>

@@ -25,46 +25,101 @@
 
     render() {
 
-        let int = this.state.map.LenghtX;
-        let hexes = this.state.map.Hexes;
-        console.log(hexes);   
+        ////// variables initialise //////
+        const xRad = 40;
+        const yRad = xRad * 0.866;
 
-        let xRad = 50;
-        let yRad = xRad * 0.866;
+        const x1Gap = 0 - xRad / 2;
+        const y1Gap = 0 - yRad;
+        const x2Gap = xRad / 2;
+        const y2Gap = y1Gap;
+        const x3Gap = xRad;
+        const y3Gap = 0;
+        const x4Gap = x2Gap;
+        const y4Gap = yRad;
+        const x5Gap = x1Gap;
+        const y5Gap = y4Gap;
+        const x6Gap = 0 - xRad;
+        const y6Gap = y3Gap;
 
-        let x1 = 0 - xRad / 2;
-        let y1 = 0 - yRad;
-        let x2 = xRad/2;
-        let y2 = y1;
-        let x3 = xRad;
+        let xCoord = 0;
+        let yCoord = 0;
+        let xOffset = 0;
+        let yOffset = 0;
+        let xCenter = 0;
+        let yCenter = 0;
+        let hexId = 0;
+
+        let rows = [];
+
+        let x1 = 0;
+        let y1 = 0;
+        let x2 = 0;
+        let y2 = 0;
+        let x3 = 0;
         let y3 = 0;
-        let x4 = x2;
-        let y4 = yRad;
-        let x5 = x1;
-        let y5 = y4;
-        let x6 = 0 - xRad;
-        let y6 = y3;
+        let x4 = 0;
+        let y4 = 0;
+        let x5 = 0;
+        let y5 = 0;
+        let x6 = 0;
+        let y6 = 0;
 
+        let xMax = this.props.xMax;
+        let yMax = this.props.yMax;
+
+        let hexes = this.state.map.Hexes;
+
+        ///// drawing hexes frames ///////
         if (hexes != undefined) {
 
-            let rows = [];
+            xMax = xRad * (1.5 * this.state.map.LengthX + 3);
+            yMax = yRad * (2 * this.state.map.LengthY + 2);
 
-            let xOffset = xRad * (1.5 * this.state.map.OffsetX + 2);
-            let yOffset = yRad * (2 * this.state.map.OffsetY + 2);
+            rows = [];
+
+            xCenter = xRad * (1.5 * this.state.map.OffsetX + 2);
+            yCenter = yRad * (2 * this.state.map.OffsetY + 2);
 
             for (let i = 0; i < hexes.length; i++) {
-                rows.push(<HexFrame key={hexes[i].ID} xRad={xRad} yRad={yRad} xCenter={xOffset} yCenter={yOffset} xCoord={hexes[i].X} yCoord={hexes[i].Y} x1={x1} y1={y1} x2={x2} y2={y2} x3={x3} y3={y3} x4={x4} y4={y4} x5={x5} y5={y5} x6={x6} y6={y6} />);
+
+                hexId = hexes[i].ID;
+
+                xCoord = hexes[i].X;
+                yCoord = hexes[i].Y;
+
+                if (xCoord % 2 == 0) {
+                    xOffset = xCenter + xRad * (xCoord * 1.5);
+                    yOffset = yCenter + yCoord * yRad * 2;
+                }
+                else {
+                    xOffset = xCenter + xRad * (xCoord * 1.5);
+                    yOffset = yCenter + yRad * yCoord * 2 + yRad;
+                }
+
+                x1 = xOffset + x1Gap;
+                y1 = yOffset + y1Gap;
+                x2 = xOffset + x2Gap;
+                y2 = yOffset + y2Gap;
+                x3 = xOffset + x3Gap;
+                y3 = yOffset + y3Gap;
+                x4 = xOffset + x4Gap;
+                y4 = yOffset + y4Gap;
+                x5 = xOffset + x5Gap;
+                y5 = yOffset + y5Gap;
+                x6 = xOffset + x6Gap;
+                y6 = yOffset + y6Gap;
+
+                rows.push(<HexFrame key={hexId} hexId={hexId} xCoord={xCoord} yCoord={yCoord} x1={x1} y1={y1} x2={x2} y2={y2} x3={x3} y3={y3} x4={x4} y4={y4} x5={x5} y5={y5} x6={x6} y6={y6} onhexclick={this.props.onhexclick} />);
             }
 
-            console.log(rows);
-
-            return <svg height="720" width="1020" style={{ position: 'absolute', top: '0px', left: '0px' }}>
+            return <svg height={yMax} width={xMax} style={{ position: 'absolute', top: '0px', left: '0px' }}>
                 {rows}
             </svg>;
         }
         else {
             return <div>
-                <p>{int}</p>
+                <p>Error occured!!!</p>
             </div>;
         }
 

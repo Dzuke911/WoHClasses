@@ -79,20 +79,20 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LenghtX.
+        ///   Looks up a localized string similar to LengthX.
         /// </summary>
-        internal static string LenghtX {
+        internal static string LengthX {
             get {
-                return ResourceManager.GetString("LenghtX", resourceCulture);
+                return ResourceManager.GetString("LengthX", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LenghtY.
+        ///   Looks up a localized string similar to LengthY.
         /// </summary>
-        internal static string LenghtY {
+        internal static string LengthY {
             get {
-                return ResourceManager.GetString("LenghtY", resourceCulture);
+                return ResourceManager.GetString("LengthY", resourceCulture);
             }
         }
         

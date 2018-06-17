@@ -125,8 +125,8 @@ namespace WoH_classes.Maps
             int offsetY = _center.Coords.Y - minY;
 
             return new JObject(new JProperty(MapJsonStrings.Hexes, hexes),
-                    new JProperty(MapJsonStrings.LenghtY, sizeX),
-                    new JProperty(MapJsonStrings.LenghtX, sizeY),
+                    new JProperty(MapJsonStrings.LengthY, sizeX),
+                    new JProperty(MapJsonStrings.LengthX, sizeY),
                     new JProperty(MapJsonStrings.OffsetY, offsetX),
                     new JProperty(MapJsonStrings.OffsetX, offsetY));
         }
