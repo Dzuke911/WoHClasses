@@ -141,4 +141,22 @@
   <data name="YCoord" xml:space="preserve">
     <value>Y</value>
   </data>
+  <data name="BottomHexId" xml:space="preserve">
+    <value>BottomHexId</value>
+  </data>
+  <data name="BottomLeftHexId" xml:space="preserve">
+    <value>BottomLeftHexId</value>
+  </data>
+  <data name="BottomRightHexId" xml:space="preserve">
+    <value>BottomRightHexId</value>
+  </data>
+  <data name="TopHexId" xml:space="preserve">
+    <value>TopHexId</value>
+  </data>
+  <data name="TopLeftHexId" xml:space="preserve">
+    <value>TopLeftHexId</value>
+  </data>
+  <data name="TopRightHexId" xml:space="preserve">
+    <value>TopRightHexId</value>
+  </data>
 </root>

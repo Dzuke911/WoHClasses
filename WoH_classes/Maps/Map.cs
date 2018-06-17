@@ -107,11 +107,14 @@ namespace WoH_classes.Maps
             JObject hex;
             JArray hexes = new JArray();
 
+            T topHexId,topRightHexId,bottomRightHexId,bottomHexId,bottomLeftHexId,topLeftHexId;
+
             foreach (T h in Hexes)
             {
                 hex = new JObject(new JProperty(MapJsonStrings.HexId, h.Id),
                     new JProperty(MapJsonStrings.XCoord, h.Coords.X),
                     new JProperty(MapJsonStrings.YCoord, h.Coords.Y));
+
                 hexes.Add(hex);
             }
 

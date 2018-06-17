@@ -61,6 +61,33 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BottomHexId.
+        /// </summary>
+        internal static string BottomHexId {
+            get {
+                return ResourceManager.GetString("BottomHexId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BottomLeftHexId.
+        /// </summary>
+        internal static string BottomLeftHexId {
+            get {
+                return ResourceManager.GetString("BottomLeftHexId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BottomRightHexId.
+        /// </summary>
+        internal static string BottomRightHexId {
+            get {
+                return ResourceManager.GetString("BottomRightHexId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hexes.
         /// </summary>
         internal static string Hexes {
@@ -111,6 +138,33 @@ namespace WoH_classes.Resources {
         internal static string OffsetY {
             get {
                 return ResourceManager.GetString("OffsetY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TopHexId.
+        /// </summary>
+        internal static string TopHexId {
+            get {
+                return ResourceManager.GetString("TopHexId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TopLeftHexId.
+        /// </summary>
+        internal static string TopLeftHexId {
+            get {
+                return ResourceManager.GetString("TopLeftHexId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TopRightHexId.
+        /// </summary>
+        internal static string TopRightHexId {
+            get {
+                return ResourceManager.GetString("TopRightHexId", resourceCulture);
             }
         }
         

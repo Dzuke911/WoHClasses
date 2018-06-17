@@ -11,9 +11,6 @@
         let xCoord = this.props.xCoord;
         let yCoord = this.props.yCoord;
 
-        //document.getElementById("InfoPannelData").setAttribute("value","hexId=" + hexId + " ,x=" + xCoord + " ,y=" + yCoord);
-        //document.getElementById("InfoPannelType").setAttribute("value","hexInfo");
-
         this.props.onhexclick("hexInfo", "hexId=" + hexId + " ,x=" + xCoord + " ,y=" + yCoord);
     }
 
