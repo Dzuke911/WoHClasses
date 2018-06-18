@@ -23,14 +23,14 @@ namespace WoH_classes.Managers
             if (!File.Exists(filePath))
                 throw new ArgumentException(CodeErrors.FileDoesntExists);
 
-            dynamic buff;
+            dynamic buffer;
 
             using (StreamReader stream = new StreamReader(filePath))
             {
-                buff = JObject.Parse(await stream.ReadToEndAsync());
+                buffer = JObject.Parse(await stream.ReadToEndAsync());
             }
 
-            JArray array = buff[GameStrings.UnitTypes];
+            JArray array = buffer[GameStrings.UnitTypes];
 
             string unitName;
             string[] attributes;
