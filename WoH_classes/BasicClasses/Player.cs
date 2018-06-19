@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WoH_classes.BasicClasses
 {
-    class Player
+    public class Player
     {
         public int Id { get; }
 

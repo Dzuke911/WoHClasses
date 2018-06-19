@@ -6,32 +6,20 @@ using WoH_classes.BasicClasses;
 
 namespace WoH_classes.Managers
 {
-    class PlayersManager
+    public class PlayersManager
     {
-        private static PlayersManager _instance;
-
         private readonly List<Player> _players;
         private readonly List<Team> _teams;
 
-        private PlayersManager()
+        public PlayersManager()
         {
             _players = new List<Player>();
             _teams = new List<Team>();
         }
 
-        public static PlayersManager GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new PlayersManager();
-            }
-
-            return _instance;
-        }
-
         public bool CreatePlayers(params int[] playersCount)
         {
-            if (_players.Count == 0)
+            if (_players.Count > 0)
                 return false;
 
             int playerId = 0, teamId = 0;

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace WoH_classes.BasicClasses
 {
-    class Team
+    public class Team
     {
         public int Id { get; }
 

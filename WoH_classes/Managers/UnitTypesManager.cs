@@ -11,6 +11,9 @@ namespace WoH_classes.Managers
 {
     public class UnitTypesManager
     {
+        private static UnitTypesManager _instance;
+        private static string _filePath;
+
         private readonly List<UnitType> _unitTypes;
 
         private UnitTypesManager(List<UnitType> unitTypes )
@@ -23,38 +26,45 @@ namespace WoH_classes.Managers
             if (!File.Exists(filePath))
                 throw new ArgumentException(CodeErrors.FileDoesntExists);
 
-            dynamic buffer;
-
-            using (StreamReader stream = new StreamReader(filePath))
+            if(_instance == null || _filePath != filePath)
             {
-                buffer = JObject.Parse(await stream.ReadToEndAsync());
-            }
+                _filePath = filePath;
 
-            JArray array = buffer[GameStrings.UnitTypes];
+                dynamic buffer;
 
-            string unitName;
-            string[] attributes;
-            List<UnitType> list = new List<UnitType>();
-            int i = 0;
-            int[] attributesInt;
-
-            foreach(JObject obj in array)
-            {
-                unitName = obj[GameStrings.UnitName].ToObject<string>();
-                attributes = obj[GameStrings.UnitTypeAttributes].ToObject<string[]>();
-
-                attributesInt = new int[attributes.Length];
-
-                for (int j = 0; j < attributes.Length; j++)
+                using (StreamReader stream = new StreamReader(filePath))
                 {
-                    attributesInt[j] = unitTypeAttributesManager.GetID(attributes[j]);
+                    buffer = JObject.Parse(await stream.ReadToEndAsync());
                 }
 
-                list.Add( new UnitType(i, unitName, attributesInt));
-                i ++;
+                JArray array = buffer[GameStrings.UnitTypes];
+
+                string unitName;
+                string[] attributes;
+                List<UnitType> list = new List<UnitType>();
+                int i = 0;
+                int[] attributesInt;
+
+                foreach (JObject obj in array)
+                {
+                    unitName = obj[GameStrings.UnitName].ToObject<string>();
+                    attributes = obj[GameStrings.UnitTypeAttributes].ToObject<string[]>();
+
+                    attributesInt = new int[attributes.Length];
+
+                    for (int j = 0; j < attributes.Length; j++)
+                    {
+                        attributesInt[j] = unitTypeAttributesManager.GetID(attributes[j]);
+                    }
+
+                    list.Add(new UnitType(i, unitName, attributesInt));
+                    i++;
+                }
+
+                _instance = new UnitTypesManager(list);
             }
 
-            return new UnitTypesManager(list);
+            return _instance;
         }
     }
 }
