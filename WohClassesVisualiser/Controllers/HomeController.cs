@@ -31,7 +31,15 @@ namespace WohClassesVisualiser.Controllers
         }
 
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult GetMap()
+        {
+            Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
+
+            return Json(map.ToJson());
+        }
+
+        [HttpGet]
+        public JsonResult GetUnits()
         {
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
 

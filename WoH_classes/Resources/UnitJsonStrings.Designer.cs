@@ -22,14 +22,14 @@ namespace WoH_classes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GameStrings {
+    internal class UnitJsonStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GameStrings() {
+        internal UnitJsonStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WoH_classes.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.GameStrings", typeof(GameStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.UnitJsonStrings", typeof(UnitJsonStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,38 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GameUnits.
+        ///   Looks up a localized string similar to UnitOwner.
         /// </summary>
-        internal static string GameUnits {
+        internal static string UnitOwner {
             get {
-                return ResourceManager.GetString("GameUnits", resourceCulture);
+                return ResourceManager.GetString("UnitOwner", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UnitName.
+        ///   Looks up a localized string similar to UnitPosition.
         /// </summary>
-        internal static string UnitName {
+        internal static string UnitPosition {
             get {
-                return ResourceManager.GetString("UnitName", resourceCulture);
+                return ResourceManager.GetString("UnitPosition", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UnitTypeAttribute.
+        ///   Looks up a localized string similar to UnitTypeId.
         /// </summary>
-        internal static string UnitTypeAttributes {
+        internal static string UnitTypeId {
             get {
-                return ResourceManager.GetString("UnitTypeAttributes", resourceCulture);
+                return ResourceManager.GetString("UnitTypeId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UnitType.
+        ///   Looks up a localized string similar to UnitTypeName.
         /// </summary>
-        internal static string UnitTypes {
+        internal static string UnitTypeName {
             get {
-                return ResourceManager.GetString("UnitTypes", resourceCulture);
+                return ResourceManager.GetString("UnitTypeName", resourceCulture);
             }
         }
     }

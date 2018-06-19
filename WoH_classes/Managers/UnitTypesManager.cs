@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WoH_classes.BasicClasses;
@@ -19,6 +20,11 @@ namespace WoH_classes.Managers
         private UnitTypesManager(List<UnitType> unitTypes )
         {
             _unitTypes = unitTypes;
+        }
+
+        public UnitType GetUnitType(string typeName)
+        {
+            return _unitTypes.SingleOrDefault(ut => ut.Name == typeName);
         }
 
         public static async Task<UnitTypesManager> GetInstance(string filePath, UnitTypeAttributesManager unitTypeAttributesManager)

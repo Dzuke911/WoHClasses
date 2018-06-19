@@ -12,6 +12,8 @@ namespace WoH_classes.Managers
     public class UnitTypeAttributesManager
     {
         private readonly string[] _attributes;
+        private static string _filePath;
+        private static UnitTypeAttributesManager _instance;
 
         public int GetID(string name)
         {
@@ -34,16 +36,23 @@ namespace WoH_classes.Managers
             if (!File.Exists(filePath))
                 throw new ArgumentException(CodeErrors.FileDoesntExists);
 
-            dynamic buff;
-
-            using (StreamReader stream = new StreamReader(filePath))
+            if( _instance == null || _filePath != filePath)
             {
-                buff = JObject.Parse(await stream.ReadToEndAsync());
+                _filePath = filePath;
+
+                dynamic buffer;
+
+                using (StreamReader stream = new StreamReader(filePath))
+                {
+                    buffer = JObject.Parse(await stream.ReadToEndAsync());
+                }
+
+                JArray array = buffer[GameStrings.UnitTypeAttributes];
+
+                _instance = new UnitTypeAttributesManager(array.ToObject<string[]>());
             }
 
-            JArray array = buff[GameStrings.UnitTypeAttributes];
-
-            return new UnitTypeAttributesManager(array.ToObject<string[]>());
+            return _instance;
         }
     }
 }

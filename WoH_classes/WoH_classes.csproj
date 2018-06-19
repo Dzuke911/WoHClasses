@@ -24,6 +24,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MapJsonStrings.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\UnitJsonStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnitJsonStrings.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +43,10 @@
     <EmbeddedResource Update="Resources\MapJsonStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MapJsonStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\UnitJsonStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UnitJsonStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

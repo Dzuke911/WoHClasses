@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GameUnits" xml:space="preserve">
-    <value>GameUnits</value>
+  <data name="UnitOwner" xml:space="preserve">
+    <value>UnitOwner</value>
   </data>
-  <data name="UnitName" xml:space="preserve">
-    <value>UnitName</value>
+  <data name="UnitPosition" xml:space="preserve">
+    <value>UnitPosition</value>
   </data>
-  <data name="UnitTypeAttributes" xml:space="preserve">
-    <value>UnitTypeAttribute</value>
+  <data name="UnitTypeId" xml:space="preserve">
+    <value>UnitTypeId</value>
   </data>
-  <data name="UnitTypes" xml:space="preserve">
-    <value>UnitType</value>
+  <data name="UnitTypeName" xml:space="preserve">
+    <value>UnitTypeName</value>
   </data>
 </root>

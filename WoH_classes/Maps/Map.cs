@@ -44,6 +44,11 @@ namespace WoH_classes.Maps
             return Hexes.SingleOrDefault(h => h.Coords.X == coords.X && h.Coords.Y == coords.Y);
         }
 
+        public T GetHex(int X, int Y)
+        {
+            return Hexes.SingleOrDefault(h => h.Coords.X == X && h.Coords.Y == Y);
+        }
+
         public int GetHexesCount()
         {
             return Hexes.Count();

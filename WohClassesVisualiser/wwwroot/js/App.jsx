@@ -10,7 +10,7 @@
     render() {
         return <div>
             <div style={{ position: 'relative', float: 'left', border: '3px solid #000', height: '726px', width: '826px', overflow: 'scroll' }}>
-                <Battlefield apiUrl={document.getElementById("HomeControllerUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
+                <Battlefield apiUrl={document.getElementById("GetMapUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
             </div>
             <InfoPannel type={this.state.type} data={this.state.data} />
         </div>;
