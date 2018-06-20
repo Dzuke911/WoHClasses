@@ -9,9 +9,9 @@
     }
 
     // загрузка данных
-    loadData() {
+    loadMapData() {
         let xhr = new XMLHttpRequest();
-        xhr.open("get", this.props.apiUrl, true);
+        xhr.open("get", this.props.apiMapUrl, true);
         xhr.onload = function () {
             let data = JSON.parse(xhr.responseText);
             this.setState({ map: data });
@@ -20,7 +20,7 @@
     }
 
     componentDidMount() {
-        this.loadData();
+        this.loadMapData();
     }
 
     render() {
@@ -59,6 +59,8 @@
 
         let rows = [];
 
+        let hexAbsCoords = [];
+
         let x1 = 0;
         let y1 = 0;
         let x2 = 0;
@@ -80,12 +82,11 @@
         ///// drawing hexes frames ///////
         if (hexes != undefined) {
 
-            console.log(hexes);
-
             xMax = xRad * (1.5 * this.state.map.LengthX + 3);
             yMax = yRad * (2 * this.state.map.LengthY + 2);
 
             rows = [];
+            hexAbsCoords = [];
 
             xCenter = xRad * (1.5 * this.state.map.OffsetX + 2);
             yCenter = yRad * (2 * this.state.map.OffsetY + 2);
@@ -113,6 +114,8 @@
                     yOffset = yCenter + yRad * yCoord * 2 + yRad;
                 }
 
+                hexAbsCoords.push({ x: xOffset, y: yOffset });
+
                 x1 = xOffset + x1Gap;
                 y1 = yOffset + y1Gap;
                 x2 = xOffset + x2Gap;
@@ -126,10 +129,11 @@
                 x6 = xOffset + x6Gap;
                 y6 = yOffset + y6Gap;
 
-                rows.push(<HexFrame key={hexId} hexId={hexId} xCoord={xCoord} yCoord={yCoord} x1={x1} y1={y1} x2={x2} y2={y2} x3={x3} y3={y3} x4={x4} y4={y4} x5={x5} y5={y5} x6={x6} y6={y6} onhexclick={this.props.onhexclick} topHexId={topHexId} topRightHexId={topRightHexId} bottomRightHexId={bottomRightHexId} bottomHexId={bottomHexId} bottomLeftHexId={bottomLeftHexId} topLeftHexId={topLeftHexId}/>);
+                rows.push(<HexFrame key={hexId} hexId={hexId} xCoord={xCoord} yCoord={yCoord} x1={x1} y1={y1} x2={x2} y2={y2} x3={x3} y3={y3} x4={x4} y4={y4} x5={x5} y5={y5} x6={x6} y6={y6} onhexclick={this.props.onhexclick} topHexId={topHexId} topRightHexId={topRightHexId} bottomRightHexId={bottomRightHexId} bottomHexId={bottomHexId} bottomLeftHexId={bottomLeftHexId} topLeftHexId={topLeftHexId} />);
             }
 
-            return <svg height={yMax} width={xMax} style={{ position: 'absolute', top: '0px', left: '0px' }}>
+            return <svg height={yMax} width={xMax} style={{ position: 'absolute', top: '0px', left: '0px' }}>                
+                <UnitsLayer apiUnitsUrl={document.getElementById("GetUnitsUrl").innerHTML} hexCoords={hexAbsCoords} />
                 {rows}
             </svg>;
         }

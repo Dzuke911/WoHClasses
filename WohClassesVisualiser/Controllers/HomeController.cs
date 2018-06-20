@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
+using WoH_classes.Managers;
 using WoH_classes.Maps;
 using WohClassesVisualiser.Models;
 
@@ -39,11 +40,25 @@ namespace WohClassesVisualiser.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetUnits()
+        public async Task<JsonResult> GetUnits()
         {
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
+            UnitsManager um = new UnitsManager();
 
-            return Json(map.ToJson());
+            UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
+            UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
+
+            PlayersManager pm = new PlayersManager();
+
+            pm.CreatePlayers(1);
+
+            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0));
+
+            um.AddUnit(u);
+
+            var ret = um.ToJson();
+
+            return Json(ret);
         }
 
         public IActionResult About()

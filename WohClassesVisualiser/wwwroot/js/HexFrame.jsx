@@ -35,10 +35,8 @@
         x6 = this.props.x6;
         y6 = this.props.y6;
 
-        let coords = "";
+        let pts = "" + x1 + "," + y1 + "," + x2 + "," + y2 + "," + x3 + "," + y3 + "," + x4 + "," + y4 + "," + x5 + "," + y5 + "," + x6 + "," + y6;
 
-        let pts = coords + x1 + "," + y1 + "," + x2 + "," + y2 + "," + x3 + "," + y3 + "," + x4 + "," + y4 + "," + x5 + "," + y5 + "," + x6 + "," + y6;
-
-        return <polygon points={pts} onClick={this.click} hexid={this.props.hexId} xcoord={this.props.xCoord} ycoord={this.props.yCoord} style={{ fillOpacity: '0.0', stroke: 'black', strokeWidth: '1' }} />;
+        return <polygon points={pts} onClick={this.click} hexid={this.props.hexId} xcoord={this.props.xCoord} ycoord={this.props.yCoord} style={{ strokeOpacity: '0.3', fillOpacity: '0.0', stroke: 'black', strokeWidth: '1' }} />;
     }
 }
