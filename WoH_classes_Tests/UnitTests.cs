@@ -29,7 +29,7 @@ namespace WoH_classes_Tests
             pm.CreatePlayers(1);
 
             //Act
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0));
+            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
 
             //Assert
             Assert.NotNull(u);
@@ -50,7 +50,7 @@ namespace WoH_classes_Tests
 
             pm.CreatePlayers(1);
             
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0));
+            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
 
             //Act
             JObject obj = u.ToJson();

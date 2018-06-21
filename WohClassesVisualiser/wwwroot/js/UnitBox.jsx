@@ -15,7 +15,29 @@
         let xCenter = this.props.xCenter;
         let yCenter = this.props.yCenter;
 
-        let turnAngle = 60;
+        let turnAngle = 0;
+
+        switch (this.props.direction) {
+            case "Top":
+                turnAngle = 0;
+                break;
+            case "TopRight":
+                turnAngle = 60;
+                break;
+            case "BottomRight":
+                turnAngle = 120;
+                break;
+            case "Bottom":
+                turnAngle = 180;
+                break;
+            case "BottomLeft":
+                turnAngle = 240;
+                break;
+            case "TopLeft":
+                turnAngle = 300;
+                break;
+        }
+
 
         x1 = xCenter + rad * Math.cos(this.gradToRad(50 - turnAngle));
         y1 = yCenter + rad * Math.sin(this.gradToRad(50 - turnAngle));

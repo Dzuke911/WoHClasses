@@ -31,7 +31,7 @@ namespace WoH_classes_Tests
             pm.CreatePlayers(1);
 
             
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0));
+            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
 
             //Act
             um.AddUnit(u);
@@ -58,9 +58,9 @@ namespace WoH_classes_Tests
 
             pm.CreatePlayers(1);
            
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0)));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), pm.GetPlayer(0)));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), pm.GetPlayer(0)));
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top));
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), pm.GetPlayer(0), HexDirection.Top));
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), pm.GetPlayer(0), HexDirection.Top));
 
             //Act
             JObject obj = um.ToJson();

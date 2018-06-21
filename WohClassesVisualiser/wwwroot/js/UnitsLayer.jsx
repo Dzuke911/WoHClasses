@@ -41,11 +41,12 @@
 
                 position = units[i].UnitPosition;
                 unitName = units[i].UnitTypeName;
+                direction = units[i].UnitDirection;
 
                 xCenter = hexCoords[position].x;
                 yCenter = hexCoords[position].y;
 
-                result.push(<UnitBox key={i} type="normal" unitName={unitName} xCenter={xCenter} yCenter={yCenter} />);
+                result.push(<UnitBox key={i} type="normal" unitName={unitName} direction={direction} xCenter={xCenter} yCenter={yCenter} />);
             }
 
         }

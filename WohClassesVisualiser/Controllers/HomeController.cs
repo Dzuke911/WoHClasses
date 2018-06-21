@@ -52,9 +52,13 @@ namespace WohClassesVisualiser.Controllers
 
             pm.CreatePlayers(1);
 
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0));
+            Unit u1 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
+            Unit u2 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), pm.GetPlayer(0), HexDirection.BottomLeft);
+            Unit u3 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, -1), pm.GetPlayer(0), HexDirection.TopRight);
 
-            um.AddUnit(u);
+            um.AddUnit(u1);
+            um.AddUnit(u2);
+            um.AddUnit(u3);
 
             var ret = um.ToJson();
 

@@ -61,6 +61,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UnitDirection.
+        /// </summary>
+        internal static string UnitDirection {
+            get {
+                return ResourceManager.GetString("UnitDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UnitOwner.
         /// </summary>
         internal static string UnitOwner {

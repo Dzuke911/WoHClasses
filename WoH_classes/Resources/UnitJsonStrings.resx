@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="UnitDirection" xml:space="preserve">
+    <value>UnitDirection</value>
+  </data>
   <data name="UnitOwner" xml:space="preserve">
     <value>UnitOwner</value>
   </data>
