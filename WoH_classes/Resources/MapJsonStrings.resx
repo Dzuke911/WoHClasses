@@ -159,4 +159,7 @@
   <data name="TopRightHexId" xml:space="preserve">
     <value>TopRightHexId</value>
   </data>
+  <data name="UnitsId" xml:space="preserve">
+    <value>UnitsId</value>
+  </data>
 </root>

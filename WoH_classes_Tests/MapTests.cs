@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
+using WoH_classes.Managers;
 using WoH_classes.Maps;
 using Xunit;
 
@@ -111,11 +112,12 @@ namespace WoH_classes_Tests
         public void ToJsonSuccess()
         {
             //Arrange
+            UnitsManager um = new UnitsManager();
             MapFactory<Hex> mf = new MapFactory<Hex>();
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
             //Act
-            JObject obj = map.ToJson();
+            JObject obj = map.ToJson(um);
             string str = obj.ToString();
             Assert.Equal(1, 1);
         }

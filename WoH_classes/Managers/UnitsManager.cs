@@ -55,7 +55,15 @@ namespace WoH_classes.Managers
                 units.Add(u.ToJson());
             }
 
-            return new JObject(new JProperty(GameStrings.GameUnits,units));
+            return new JObject(new JProperty(GameStrings.GameUnits, units));
+        }
+
+        public int GetUnitId(Unit unit)
+        {
+            if (!IsInUnits(unit))
+                throw new InvalidOperationException(CodeErrors.UnitIsntInUm);
+
+            return _units.IndexOf(unit);
         }
     }
 }

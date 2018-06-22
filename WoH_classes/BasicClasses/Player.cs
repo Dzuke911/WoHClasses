@@ -8,11 +8,16 @@ namespace WoH_classes.BasicClasses
     {
         public int Id { get; }
 
-        public Team Team;
+        public Team Team { get; set; }
 
         public Player(int id)
         {
             Id = id;
+        }
+
+        public bool IsAlly(Player player)
+        {
+            return Team.IsInTeam(player);
         }
     }
 }

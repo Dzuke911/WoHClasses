@@ -7,6 +7,7 @@ using WoH_classes.BasicClasses;
 using WoH_classes.Resources;
 using WoH_classes.Enums;
 using Newtonsoft.Json.Linq;
+using WoH_classes.Managers;
 
 namespace WoH_classes.Maps
 {
@@ -108,21 +109,30 @@ namespace WoH_classes.Maps
             return new Coords(_center.Coords.X - GetMinX(), _center.Coords.Y - GetMinY());
         }
 
-        public JObject ToJson()
+        public JObject ToJson(UnitsManager um)
         {
             JObject jsonHex;
             JArray hexes = new JArray();
+            JArray units = new JArray();
 
             foreach (T h in Hexes)
             {
+                units = new JArray();
+
+                foreach (Unit u in h.GetUnits())
+                {
+                    units.Add(um.GetUnitId(u));
+                }
+
                 jsonHex = new JObject(new JProperty(MapJsonStrings.HexId, h.Id),
                     new JProperty(MapJsonStrings.XCoord, h.Coords.X),
-                    new JProperty(MapJsonStrings.YCoord, h.Coords.Y));
+                    new JProperty(MapJsonStrings.YCoord, h.Coords.Y),
+                    new JProperty(MapJsonStrings.UnitsId, units));
 
-                foreach(HexDirection hd in SixDirections.Get())
+                foreach (HexDirection hd in SixDirections.Get())
                 {
                     AddNearHex(jsonHex, h, hd);
-                }                
+                }
 
                 hexes.Add(jsonHex);
             }

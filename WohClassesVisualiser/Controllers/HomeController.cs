@@ -36,7 +36,10 @@ namespace WohClassesVisualiser.Controllers
         {
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
 
-            return Json(map.ToJson());
+            // ITS TEMPORARY!!!!!!!!!!!
+            UnitsManager um = new UnitsManager();
+
+            return Json(map.ToJson(um));
         }
 
         [HttpGet]

@@ -19,9 +19,14 @@ namespace WoH_classes.BasicClasses
         public Unit( UnitType type, Hex pos, Player owner, HexDirection direction)
         {
             Type = type;
-            Position = pos;
             Owner = owner;
             Direction = direction;
+
+            if (!pos.IsFreeForUnit(this))
+                throw new InvalidOperationException(CodeErrors.CantAddUnitToHex);
+
+            Position = pos;
+            Position.AddUnit(this);
         }
 
         public JObject ToJson()

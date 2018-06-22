@@ -61,6 +61,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can`t add this unit on this hex.
+        /// </summary>
+        internal static string CantAddUnitToHex {
+            get {
+                return ResourceManager.GetString("CantAddUnitToHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File doesn`t exists..
         /// </summary>
         internal static string FileDoesntExists {
@@ -93,6 +102,24 @@ namespace WoH_classes.Resources {
         internal static string MapNotCreated {
             get {
                 return ResourceManager.GetString("MapNotCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit isnt registered on UnitManager.
+        /// </summary>
+        internal static string UnitIsntInUm {
+            get {
+                return ResourceManager.GetString("UnitIsntInUm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit isn`t on this hex.
+        /// </summary>
+        internal static string UnitIsntOnHex {
+            get {
+                return ResourceManager.GetString("UnitIsntOnHex", resourceCulture);
             }
         }
         

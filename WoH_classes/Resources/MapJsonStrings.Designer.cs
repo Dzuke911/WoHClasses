@@ -169,6 +169,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UnitsId.
+        /// </summary>
+        internal static string UnitsId {
+            get {
+                return ResourceManager.GetString("UnitsId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to X.
         /// </summary>
         internal static string XCoord {
