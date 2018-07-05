@@ -109,7 +109,7 @@ namespace WoH_classes.Maps
             return new Coords(_center.Coords.X - GetMinX(), _center.Coords.Y - GetMinY());
         }
 
-        public JObject ToJson(UnitsManager um)
+        public JObject ToJson(GameUnitsManager um)
         {
             JObject jsonHex;
             JArray hexes = new JArray();

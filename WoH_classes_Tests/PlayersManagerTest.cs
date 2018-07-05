@@ -11,7 +11,7 @@ namespace WoH_classes_Tests
         [Fact]
         public void ConstructorSuccess()
         {
-            PlayersManager pm1 = new PlayersManager();
+            GamePlayersManager pm1 = new GamePlayersManager();
 
             Assert.NotNull(pm1);
         }
@@ -19,7 +19,7 @@ namespace WoH_classes_Tests
         [Fact]
         public void CreatePlayersSuccess()
         {
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             bool res = pm.CreatePlayers(3, 3);
 
@@ -40,7 +40,7 @@ namespace WoH_classes_Tests
         [Fact]
         public void CreatePlayersFail_AlreadyCreated()
         {
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             bool res = pm.CreatePlayers(1);
             res = pm.CreatePlayers(1);

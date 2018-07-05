@@ -37,7 +37,7 @@ namespace WohClassesVisualiser.Controllers
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
 
             // ITS TEMPORARY!!!!!!!!!!!
-            UnitsManager um = new UnitsManager();
+            GameUnitsManager um = new GameUnitsManager();
 
             return Json(map.ToJson(um));
         }
@@ -46,12 +46,12 @@ namespace WohClassesVisualiser.Controllers
         public async Task<JsonResult> GetUnits()
         {
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
-            UnitsManager um = new UnitsManager();
+            GameUnitsManager um = new GameUnitsManager();
 
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
 
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             pm.CreatePlayers(1);
 

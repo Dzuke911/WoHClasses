@@ -5,17 +5,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using WoH_classes.Interfaces;
 using WoH_classes.Resources;
 
 namespace WoH_classes.Managers
 {
-    public class UnitTypeAttributesManager
+    public class UnitTypeAttributesManager : IUnitTypeAttributesManager
     {
         private readonly string[] _attributes;
         private static string _filePath;
         private static UnitTypeAttributesManager _instance;
 
-        public int GetID(string name)
+        public int GetAttributeID(string name)
         {
             for( int i = 0; i < _attributes.Length; i++)
             {

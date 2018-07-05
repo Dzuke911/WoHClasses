@@ -24,7 +24,7 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             pm.CreatePlayers(1);
 
@@ -46,7 +46,7 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             pm.CreatePlayers(1);
             

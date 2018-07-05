@@ -5,14 +5,15 @@ using WoH_classes.BasicClasses;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using WoH_classes.Resources;
+using WoH_classes.Interfaces;
 
 namespace WoH_classes.Managers
 {
-    public class UnitsManager
+    public class GameUnitsManager : IGameUnitsManager
     {
         private List<Unit> _units;
 
-        public UnitsManager()
+        public GameUnitsManager()
         {
             _units = new List<Unit>();
         }

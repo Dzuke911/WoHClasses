@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WoH_classes.BasicClasses;
+using WoH_classes.Interfaces;
 using WoH_classes.Resources;
 
 namespace WoH_classes.Managers
 {
-    public class UnitTypesManager
+    public class UnitTypesManager : IUnitTypesManager
     {
         private static UnitTypesManager _instance;
         private static string _filePath;
@@ -60,7 +61,7 @@ namespace WoH_classes.Managers
 
                     for (int j = 0; j < attributes.Length; j++)
                     {
-                        attributesInt[j] = unitTypeAttributesManager.GetID(attributes[j]);
+                        attributesInt[j] = unitTypeAttributesManager.GetAttributeID(attributes[j]);
                     }
 
                     list.Add(new UnitType(i, unitName, attributesInt));

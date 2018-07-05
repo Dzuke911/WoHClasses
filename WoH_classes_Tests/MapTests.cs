@@ -112,7 +112,7 @@ namespace WoH_classes_Tests
         public void ToJsonSuccess()
         {
             //Arrange
-            UnitsManager um = new UnitsManager();
+            GameUnitsManager um = new GameUnitsManager();
             MapFactory<Hex> mf = new MapFactory<Hex>();
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 

@@ -17,7 +17,7 @@ namespace WoH_classes_Tests
         public async Task AddUnitSuccess()
         {
             //Arrange
-            UnitsManager um = new UnitsManager();
+            GameUnitsManager um = new GameUnitsManager();
             
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
@@ -26,7 +26,7 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             pm.CreatePlayers(1);
 
@@ -45,7 +45,7 @@ namespace WoH_classes_Tests
         public async Task ToJsonSuccess()
         {
             //Arrange
-            UnitsManager um = new UnitsManager();
+            GameUnitsManager um = new GameUnitsManager();
 
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
@@ -54,7 +54,7 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            PlayersManager pm = new PlayersManager();
+            GamePlayersManager pm = new GamePlayersManager();
 
             pm.CreatePlayers(1);
            

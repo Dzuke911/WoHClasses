@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using React.AspNet;
 using WoH_classes.BasicClasses;
+using WoH_classes.Facade;
 using WoH_classes.Maps;
 
 namespace WohClassesVisualiser
@@ -28,7 +29,8 @@ namespace WohClassesVisualiser
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); //react
             services.AddReact(); //react
             services.AddMvc();
-            services.AddTransient( f => new MapFactory<Hex>());
+
+            FacadeRegistration.ConfigureServices(services);
 
             return services.BuildServiceProvider();
         }

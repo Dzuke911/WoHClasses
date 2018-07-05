@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WoH_classes.BasicClasses;
+using WoH_classes.Interfaces;
 
 namespace WoH_classes.Managers
 {
-    public class PlayersManager
+    public class GamePlayersManager : IGamePlayersManager
     {
         private readonly List<Player> _players;
         private readonly List<Team> _teams;
 
-        public PlayersManager()
+        public GamePlayersManager()
         {
             _players = new List<Player>();
             _teams = new List<Team>();
         }
 
-        public bool CreatePlayers(params int[] playersCount)
+        public bool CreatePlayers(params int[] playersInTeamCount)
         {
             if (_players.Count > 0)
                 return false;
@@ -26,7 +27,7 @@ namespace WoH_classes.Managers
             Player currPlayer;
             Team currTeam;
 
-            foreach (int num in playersCount)
+            foreach (int num in playersInTeamCount)
             {
                 currTeam = new Team(teamId++);
                 _teams.Add(currTeam);
