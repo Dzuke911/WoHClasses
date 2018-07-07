@@ -18,26 +18,19 @@ namespace WoH_classes.Managers
             _teams = new List<Team>();
         }
 
-        public bool CreatePlayers(params int[] playersInTeamCount)
+        public bool CreatePlayers(params Player[] players)
         {
             if (_players.Count > 0)
                 return false;
 
-            int playerId = 0, teamId = 0;
-            Player currPlayer;
-            Team currTeam;
-
-            foreach (int num in playersInTeamCount)
+            foreach (Player player in players)
             {
-                currTeam = new Team(teamId++);
-                _teams.Add(currTeam);
+                _players.Add(player);
 
-                for (int i = 0; i < num; i++)
+                bool isInTeams = false;
+                foreach(Team tm in _teams)
                 {
-                    currPlayer = new Player(playerId++);
-                    currTeam.AddPlayer(currPlayer);
 
-                    _players.Add(currPlayer);
                 }
             }
 

@@ -6,13 +6,13 @@ namespace WoH_classes.BasicClasses
 {
     public class Player
     {
-        public int Id { get; }
+        public readonly string LoginId;
 
         public Team Team { get; set; }
 
-        public Player(int id)
+        public Player(string loginId)
         {
-            Id = id;
+            LoginId = loginId;
         }
 
         public bool IsAlly(Player player)
