@@ -33,7 +33,7 @@ namespace WoH_classes.BasicClasses
         {
             return new JObject(new JProperty(UnitJsonStrings.UnitTypeName, Type.Name),
                 new JProperty(UnitJsonStrings.UnitTypeId, Type.Id),
-                new JProperty(UnitJsonStrings.UnitOwner, Owner.Id),
+                new JProperty(UnitJsonStrings.UnitOwner, Owner.LoginId),
                 new JProperty(UnitJsonStrings.UnitPosition, Position.Id),
                 new JProperty(UnitJsonStrings.UnitDirection, Direction.ToString()));
         }

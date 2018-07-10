@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
+using WoH_classes.GameFactories;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
 using WohClassesVisualiser.Models;
@@ -45,19 +46,21 @@ namespace WohClassesVisualiser.Controllers
         [HttpGet]
         public async Task<JsonResult> GetUnits()
         {
+            const string playerId = "asd";
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
             GameUnitsManager um = new GameUnitsManager();
 
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
 
-            GamePlayersManager pm = new GamePlayersManager();
+            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
+            Player p = new Player(playerId);
 
-            pm.CreatePlayers(1);
+            pm.AddTeam(p);
 
-            Unit u1 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
-            Unit u2 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), pm.GetPlayer(0), HexDirection.BottomLeft);
-            Unit u3 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, -1), pm.GetPlayer(0), HexDirection.TopRight);
+            Unit u1 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
+            Unit u2 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.BottomLeft);
+            Unit u3 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, -1), p, HexDirection.TopRight);
 
             um.AddUnit(u1);
             um.AddUnit(u2);

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WoH_classes.BasicClasses;
+using WoH_classes.GameFactories;
 using WoH_classes.Managers;
 using Xunit;
 
@@ -11,41 +13,36 @@ namespace WoH_classes_Tests
         [Fact]
         public void ConstructorSuccess()
         {
-            GamePlayersManager pm1 = new GamePlayersManager();
+            GamePlayersManager pm1 = new GamePlayersManager(new GameTeamsFactory());
 
             Assert.NotNull(pm1);
         }
 
         [Fact]
-        public void CreatePlayersSuccess()
+        public void AddTeamSuccess()
         {
-            GamePlayersManager pm = new GamePlayersManager();
+            int teamId = -1;
+            const string playerId = "asdfasd";
+            Player p = new Player(playerId);
+            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
 
-            bool res = pm.CreatePlayers(3, 3);
+            teamId = pm.AddTeam(p);
 
-            Assert.True(res);
-            Assert.NotNull(pm.GetPlayer(0));
-            Assert.NotNull(pm.GetPlayer(1));
-            Assert.NotNull(pm.GetPlayer(2));
-            Assert.NotNull(pm.GetPlayer(3));
-            Assert.NotNull(pm.GetPlayer(4));
-            Assert.NotNull(pm.GetPlayer(5));
+            Assert.True(teamId != -1);
+            Assert.NotNull(pm.GetPlayer(playerId));
+            Assert.NotNull(pm.GetTeam(teamId));
 
-            Assert.Null(pm.GetPlayer(6));
-
-            Assert.NotNull(pm.GetTeam(0));
-            Assert.NotNull(pm.GetTeam(1));
         }
 
         [Fact]
-        public void CreatePlayersFail_AlreadyCreated()
+        public void AddTeamFail_NullPlayer()
         {
-            GamePlayersManager pm = new GamePlayersManager();
+            const string playerId = "asdfasd";
+            Player p = new Player(playerId);
 
-            bool res = pm.CreatePlayers(1);
-            res = pm.CreatePlayers(1);
+            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
 
-            Assert.False(res);
+            Assert.Throws<ArgumentNullException>(() => { pm.AddTeam(p, null); });
         }
     }
 }

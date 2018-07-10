@@ -8,9 +8,16 @@ namespace WoH_classes.GameFactories
 {
     class GameManagersFactory : IGameManagersFactory
     {
-        public IGamePlayersManager GetPlayersManager(params string[] playersId)
+        private readonly IGameTeamsFactory _teamFactory;
+
+        public GameManagersFactory(IGameTeamsFactory teamFactory)
         {
-            return new GamePlayersManager(params string[] playersId);
+            _teamFactory = teamFactory;
+        }
+
+        public IGamePlayersManager GetPlayersManager()
+        {
+            return new GamePlayersManager(_teamFactory);
         }
 
         public IGameUnitsManager GetUnitsManager()

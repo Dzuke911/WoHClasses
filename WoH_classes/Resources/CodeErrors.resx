@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CantAddUnitToHex" xml:space="preserve">
-    <value>Can`t add this unit on this hex</value>
+    <value>Can`t add this unit to this hex</value>
+  </data>
+  <data name="CantCreateEmptyTeam" xml:space="preserve">
+    <value>Can`t create team with no players</value>
   </data>
   <data name="FileDoesntExists" xml:space="preserve">
     <value>File doesn`t exists.</value>
@@ -127,7 +130,7 @@
     <value>Can`t create Hex</value>
   </data>
   <data name="InvalidHexType" xml:space="preserve">
-    <value>Can`t create Hex by reflection, Hex must be herited from BaseHex</value>
+    <value>Can`t create Hex by reflection, Hex must be inherited from BaseHex</value>
   </data>
   <data name="MapNotCreated" xml:space="preserve">
     <value>Map isn`t valid, center hex is null</value>

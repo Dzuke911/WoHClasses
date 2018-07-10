@@ -9,37 +9,43 @@ namespace WoH_classes.Managers
 {
     public class GamePlayersManager : IGamePlayersManager
     {
+        private int _lastTeamId = 0;
+        private readonly IGameTeamsFactory _teamsFactory;
         private readonly List<Player> _players;
         private readonly List<Team> _teams;
 
-        public GamePlayersManager()
+        public GamePlayersManager(IGameTeamsFactory teamsFactory)
         {
+            _teamsFactory = teamsFactory;
             _players = new List<Player>();
             _teams = new List<Team>();
         }
 
-        public bool CreatePlayers(params Player[] players)
+        public int AddTeam(params Player[] players)
         {
-            if (_players.Count > 0)
-                return false;
-
-            foreach (Player player in players)
+            foreach (Player p in players)
             {
-                _players.Add(player);
-
-                bool isInTeams = false;
-                foreach(Team tm in _teams)
+                if(p == null)
                 {
+                    throw new ArgumentNullException(nameof(players));
+                }
 
+                if (!_players.Contains(p))
+                {
+                    _players.Add(p);
                 }
             }
 
-            return true;
+            Team team = _teamsFactory.GetNewTeam(_lastTeamId++, players);
+
+            _teams.Add(team);
+
+            return team.Id;
         }
 
-        public Player GetPlayer(int id)
+        public Player GetPlayer(string loginId)
         {
-            return _players.SingleOrDefault(p => p.Id == id);
+            return _players.SingleOrDefault(p => p.LoginId == loginId);
         }
 
         public Team GetTeam(int id)

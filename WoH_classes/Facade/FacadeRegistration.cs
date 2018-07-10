@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using WoH_classes.BasicClasses;
+using WoH_classes.GameFactories;
 using WoH_classes.Interfaces;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
@@ -21,12 +22,13 @@ namespace WoH_classes.Facade
 
             services.AddTransient(f => new MapFactory<Hex>());
 
-            services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager());
+            services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
             services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
             services.AddTransient<IUnitTypesManager, UnitTypesManager>(s => _unitTypesManager);
             services.AddTransient<IUnitTypeAttributesManager,UnitTypeAttributesManager>(s => _unitTypeAttributesManager);
 
-            services.AddTransient<IGame, Game>(s => new Game(s.GetService<GameUnitsManager>(),s.GetService<UnitTypesManager>(), s.GetService<UnitTypeAttributesManager>(), s.GetService<GamePlayersManager>()));
+            services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
+            services.AddTransient<IGame, Game>(s => new Game(s.GetService<IGameUnitsManager>(),s.GetService<IUnitTypesManager>(), s.GetService<IUnitTypeAttributesManager>(), s.GetService<IGamePlayersManager>()));
         }
 
         private static void CreateDataManagers()

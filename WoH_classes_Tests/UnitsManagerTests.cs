@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
+using WoH_classes.GameFactories;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
 using Xunit;
@@ -17,6 +18,7 @@ namespace WoH_classes_Tests
         public async Task AddUnitSuccess()
         {
             //Arrange
+            const string playerId = "asd";
             GameUnitsManager um = new GameUnitsManager();
             
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
@@ -26,12 +28,12 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            GamePlayersManager pm = new GamePlayersManager();
+            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
+            Player p = new Player(playerId);
 
-            pm.CreatePlayers(1);
-
+            pm.AddTeam(p);
             
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top);
+            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
 
             //Act
             um.AddUnit(u);
@@ -45,6 +47,7 @@ namespace WoH_classes_Tests
         public async Task ToJsonSuccess()
         {
             //Arrange
+            const string playerId = "asd";
             GameUnitsManager um = new GameUnitsManager();
 
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
@@ -54,13 +57,14 @@ namespace WoH_classes_Tests
 
             Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
 
-            GamePlayersManager pm = new GamePlayersManager();
+            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
+            Player p = new Player(playerId);
 
-            pm.CreatePlayers(1);
-           
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), pm.GetPlayer(0), HexDirection.Top));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), pm.GetPlayer(0), HexDirection.Top));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), pm.GetPlayer(0), HexDirection.Top));
+            pm.AddTeam(p);
+
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
+            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.Top));
 
             //Act
             JObject obj = um.ToJson();

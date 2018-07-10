@@ -5,9 +5,8 @@ using WoH_classes.BasicClasses;
 
 namespace WoH_classes.Interfaces
 {
-    interface IGameManagersFactory
+    public interface IGameTeamsFactory
     {
-        IGameUnitsManager GetUnitsManager();
-        IGamePlayersManager GetPlayersManager();
+        Team GetNewTeam(int id, params Player[] players);
     }
 }

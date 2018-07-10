@@ -7,8 +7,8 @@ namespace WoH_classes.Interfaces
 {
     public interface IGamePlayersManager
     {
-        bool CreatePlayers(params Team[] teams);
-        Player GetPlayer(int id);
+        int AddTeam(params Player[] players);
+        Player GetPlayer(string loginID);
         Team GetTeam(int id);
     }
 }

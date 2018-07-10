@@ -61,11 +61,20 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can`t add this unit on this hex.
+        ///   Looks up a localized string similar to Can`t add this unit to this hex.
         /// </summary>
         internal static string CantAddUnitToHex {
             get {
                 return ResourceManager.GetString("CantAddUnitToHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can`t create team with no players.
+        /// </summary>
+        internal static string CantCreateEmptyTeam {
+            get {
+                return ResourceManager.GetString("CantCreateEmptyTeam", resourceCulture);
             }
         }
         
@@ -88,7 +97,7 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can`t create Hex by reflection, Hex must be herited from BaseHex.
+        ///   Looks up a localized string similar to Can`t create Hex by reflection, Hex must be inherited from BaseHex.
         /// </summary>
         internal static string InvalidHexType {
             get {
