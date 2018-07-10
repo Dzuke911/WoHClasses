@@ -8,14 +8,19 @@ using Xunit;
 
 namespace WoH_classes_Tests
 {
-    public class PlayersManagerTest
+    public class GamePlayersManagerTest
     {
+        GamePlayersManager pm;
+
+        public GamePlayersManagerTest()
+        {
+            pm = new GamePlayersManager(new GameTeamsFactory());
+        }
+
         [Fact]
         public void ConstructorSuccess()
         {
-            GamePlayersManager pm1 = new GamePlayersManager(new GameTeamsFactory());
-
-            Assert.NotNull(pm1);
+            Assert.NotNull(pm);
         }
 
         [Fact]
@@ -24,14 +29,12 @@ namespace WoH_classes_Tests
             int teamId = -1;
             const string playerId = "asdfasd";
             Player p = new Player(playerId);
-            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
 
             teamId = pm.AddTeam(p);
 
             Assert.True(teamId != -1);
             Assert.NotNull(pm.GetPlayer(playerId));
             Assert.NotNull(pm.GetTeam(teamId));
-
         }
 
         [Fact]
@@ -39,8 +42,6 @@ namespace WoH_classes_Tests
         {
             const string playerId = "asdfasd";
             Player p = new Player(playerId);
-
-            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
 
             Assert.Throws<ArgumentNullException>(() => { pm.AddTeam(p, null); });
         }

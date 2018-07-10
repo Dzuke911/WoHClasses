@@ -5,10 +5,10 @@ using System.Text;
 
 namespace WoH_classes.Interfaces
 {
-    public interface IGamesManager
+    public interface IGamesManager 
     {
-        int CreateNewGame(params string[] playerID);
-        JObject GetMap(int gameID,params string[] playerID);
-        JObject GetUnits(int gameID,params string[] playerID);
+        IGame CreateNewGame(IGameStartModel gameStartModel);
+        JObject GetMap(int gameID, string playerID);
+        JObject GetUnits(int gameID, string playerID);
     }
 }

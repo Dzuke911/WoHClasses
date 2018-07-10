@@ -4,8 +4,7 @@ using System.Text;
 
 namespace WoH_classes.Interfaces
 {
-    public interface IGame
+    public interface IGameStartModel
     {
-        int Id { get; }
     }
 }

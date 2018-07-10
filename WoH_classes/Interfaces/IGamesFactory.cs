@@ -4,8 +4,8 @@ using System.Text;
 
 namespace WoH_classes.Interfaces
 {
-    public interface IGame
+    public interface IGamesFactory
     {
-        int Id { get; }
+        IGame GetNewGame(int id, IGameStartModel gameStartModel);
     }
 }

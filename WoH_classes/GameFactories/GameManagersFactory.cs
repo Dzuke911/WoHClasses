@@ -6,7 +6,7 @@ using WoH_classes.Managers;
 
 namespace WoH_classes.GameFactories
 {
-    class GameManagersFactory : IGameManagersFactory
+    public class GameManagersFactory : IGameManagersFactory
     {
         private readonly IGameTeamsFactory _teamFactory;
 

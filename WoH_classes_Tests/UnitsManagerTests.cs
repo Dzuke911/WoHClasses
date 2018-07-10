@@ -14,25 +14,31 @@ namespace WoH_classes_Tests
 {
     public class UnitsManagerTests
     {
+        const string playerId = "asd";
+        GameUnitsManager um;
+        MapFactory<Hex> mf;
+        Map<Hex> map;
+        GamePlayersManager pm;
+        Player p;
+
+        public UnitsManagerTests()
+        {
+            um = new GameUnitsManager();
+            mf = new MapFactory<Hex>();
+            map = mf.CreateMap(MapShape.Circle, 3);
+            pm = new GamePlayersManager(new GameTeamsFactory());
+            p = new Player(playerId);
+            pm.AddTeam(p);
+        }
+
         [Fact]
         public async Task AddUnitSuccess()
         {
-            //Arrange
-            const string playerId = "asd";
-            GameUnitsManager um = new GameUnitsManager();
+            //Arrange            
             
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
-
-            MapFactory<Hex> mf = new MapFactory<Hex>();
-
-            Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
-
-            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
-            Player p = new Player(playerId);
-
-            pm.AddTeam(p);
-            
+                                                  
             Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
 
             //Act
@@ -47,20 +53,8 @@ namespace WoH_classes_Tests
         public async Task ToJsonSuccess()
         {
             //Arrange
-            const string playerId = "asd";
-            GameUnitsManager um = new GameUnitsManager();
-
             UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
             UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
-
-            MapFactory<Hex> mf = new MapFactory<Hex>();
-
-            Map<Hex> map = mf.CreateMap(MapShape.Circle, 3);
-
-            GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
-            Player p = new Player(playerId);
-
-            pm.AddTeam(p);
 
             um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
             um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
