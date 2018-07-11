@@ -61,11 +61,38 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DefaultMapSizes.
+        /// </summary>
+        internal static string DefaultMapSizes {
+            get {
+                return ResourceManager.GetString("DefaultMapSizes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GameUnits.
         /// </summary>
         internal static string GameUnits {
             get {
                 return ResourceManager.GetString("GameUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MapSize.
+        /// </summary>
+        internal static string MapSize {
+            get {
+                return ResourceManager.GetString("MapSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PlayersCount.
+        /// </summary>
+        internal static string PlayersCount {
+            get {
+                return ResourceManager.GetString("PlayersCount", resourceCulture);
             }
         }
         

@@ -115,6 +115,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no suitable map size in defaults.
+        /// </summary>
+        internal static string NoSuitableMapSize {
+            get {
+                return ResourceManager.GetString("NoSuitableMapSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unit isnt registered on UnitManager.
         /// </summary>
         internal static string UnitIsntInUm {

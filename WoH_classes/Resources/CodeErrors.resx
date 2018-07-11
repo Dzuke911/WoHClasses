@@ -135,6 +135,9 @@
   <data name="MapNotCreated" xml:space="preserve">
     <value>Map isn`t valid, center hex is null</value>
   </data>
+  <data name="NoSuitableMapSize" xml:space="preserve">
+    <value>There is no suitable map size in defaults</value>
+  </data>
   <data name="UnitIsntInUm" xml:space="preserve">
     <value>Unit isnt registered on UnitManager</value>
   </data>

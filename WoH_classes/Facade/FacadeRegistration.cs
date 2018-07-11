@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using WoH_classes.BasicClasses;
+using WoH_classes.DataManagers;
 using WoH_classes.GameFactories;
 using WoH_classes.GameManagers;
 using WoH_classes.Interfaces;
@@ -14,8 +15,10 @@ namespace WoH_classes.Facade
 {
     public static class FacadeRegistration
     {
-        private static UnitTypeAttributesManager _unitTypeAttributesManager;
-        private static UnitTypesManager _unitTypesManager;
+        private static IUnitTypeAttributesManager _unitTypeAttributesManager;
+        private static IUnitTypesManager _unitTypesManager;
+        private static IGameDefaultsManager _gameDefaultsManager;
+
 
         public static void ConfigureServices(IServiceCollection services)
         {
@@ -25,8 +28,8 @@ namespace WoH_classes.Facade
 
             services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
             services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
-            services.AddTransient<IUnitTypesManager, UnitTypesManager>(s => _unitTypesManager);
-            services.AddTransient<IUnitTypeAttributesManager, UnitTypeAttributesManager>(s => _unitTypeAttributesManager);
+            services.AddTransient(s => _unitTypesManager);
+            services.AddTransient(s => _unitTypeAttributesManager);
 
 
             services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
@@ -43,6 +46,9 @@ namespace WoH_classes.Facade
 
             Task<UnitTypesManager> utm = UnitTypesManager.GetInstance("GameData/UnitTypes.json", _unitTypeAttributesManager);
             _unitTypesManager = utm.Result;
+
+            Task<GameDefaultsManager> gdm = GameDefaultsManager.GetInstance("GameData/GameDefaults.json");
+            _gameDefaultsManager = gdm.Result;
         }
     }
 }

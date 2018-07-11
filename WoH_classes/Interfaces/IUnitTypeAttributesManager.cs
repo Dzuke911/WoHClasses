@@ -6,5 +6,6 @@ namespace WoH_classes.Interfaces
 {
     public interface IUnitTypeAttributesManager
     {
+        int GetAttributeID(string name);
     }
 }

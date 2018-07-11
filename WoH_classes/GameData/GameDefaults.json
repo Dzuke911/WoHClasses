@@ -1,0 +1,13 @@
+﻿{
+  "DefaultMapSizes": [
+    {
+      "PlayersCount": 2,
+      "MapSize": 8
+    },
+
+    {
+      "PlayersCount": 4,
+      "MapSize": 12
+    }
+  ]
+}

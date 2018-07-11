@@ -28,7 +28,7 @@ namespace WoH_classes.Managers
             return _unitTypes.SingleOrDefault(ut => ut.Name == typeName);
         }
 
-        public static async Task<UnitTypesManager> GetInstance(string filePath, UnitTypeAttributesManager unitTypeAttributesManager)
+        public static async Task<UnitTypesManager> GetInstance(string filePath, IUnitTypeAttributesManager unitTypeAttributesManager)
         {
             if (!File.Exists(filePath))
                 throw new ArgumentException(CodeErrors.FileDoesntExists);
