@@ -30,6 +30,7 @@ namespace WohClassesVisualiser
             services.AddReact(); //react
             services.AddMvc();
 
+            FacadeRegistration.Configuration = Configuration;
             FacadeRegistration.ConfigureServices(services);
 
             return services.BuildServiceProvider();
@@ -52,6 +53,8 @@ namespace WohClassesVisualiser
             app.UseDefaultFiles(); //react
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

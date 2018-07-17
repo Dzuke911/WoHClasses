@@ -1,6 +1,6 @@
 using System;
 
-namespace WohClassesVisualiser.Models
+namespace Woh_Visualiser.Models
 {
     public class ErrorViewModel
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using WoH_classes.BasicClasses;
@@ -10,10 +11,11 @@ using WoH_classes.Enums;
 using WoH_classes.GameFactories;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
-using WohClassesVisualiser.Models;
+using Woh_Visualiser.Models;
 
-namespace WohClassesVisualiser.Controllers
+namespace Woh_Visualiser.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public HomeController(MapFactory<Hex> mapFactory)

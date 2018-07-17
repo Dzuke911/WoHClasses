@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WoH_Data\WoH_Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\CodeErrors.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

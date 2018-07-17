@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoH_classes.BasicClasses;
 
-namespace WohClassesVisualiser.Models
+namespace Woh_Visualiser.Models
 {
     public class HomeModel
     {
