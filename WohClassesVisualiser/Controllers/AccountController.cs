@@ -18,7 +18,7 @@ namespace Woh_Visualiser.Controllers
 
         public AccountController(IAuthentication authentication)
         {
-            authentication = _authentication;
+            _authentication = authentication;
         }
 
         [HttpGet]
@@ -46,7 +46,7 @@ namespace Woh_Visualiser.Controllers
                 if (result.Succeeded)
                 {
                     //return RedirectToLocal(returnUrl);
-                    return RedirectToAction(nameof(HomeController.Index));
+                    return RedirectToAction(nameof(HomeController.Index),"Home");
                 }
                 if (result.IsLockedOut)
                 {

@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@using WoH_classes.BasicClasses
 
 <div class="row">
     <div class="col-sm-12">
@@ -10,55 +9,6 @@
         <span id="GetUnitsUrl" style="display:none">@Url.Action("GetUnits", "Home")</span>
         <img id="TestBgImage" src="~/images/WoHTestBackground.png" style="display:none; position:absolute" />
         <div id="BattlefieldFrame" class="BfFrame">
-
-            @*<canvas id="MainCanvas" height="720" width="1020" style="position:absolute; top:0px; left:0px;"></canvas>
-
-                <svg height="720" width="1020" style="position:absolute; top:0px; left:0px; ">
-                    @{
-                        const int centerX = 510, centerY = 360;
-                        int x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, offsetY, offsetX;
-                        string textXstr, textYstr;
-
-                        const int edge = 30;
-                        const int halfEdge = edge / 2;
-                        const int sizeY = 2 * edge * 9 / 10;
-                        const int sizeX = 2 * edge * 8 / 10;
-                        const int evenY = edge * 9 / 10;
-
-
-                        foreach (Hex h in Model.Hexes)
-                        {
-                            offsetX = h.Coords.X * sizeX * -1;
-                            offsetY = h.Coords.X % 2 == 0 ? h.Coords.Y * sizeY * -1 : h.Coords.Y * sizeY * -1 - evenY;
-
-                            x1 = centerX + halfEdge + offsetX;
-                            y1 = centerY - evenY + offsetY;
-                            x2 = centerX + edge + offsetX;
-                            y2 = centerY + offsetY;
-                            x3 = centerX + halfEdge + offsetX;
-                            y3 = centerY + evenY + offsetY;
-                            x4 = centerX - halfEdge + offsetX;
-                            y4 = centerY + evenY + offsetY;
-                            x5 = centerX - edge + offsetX;
-                            y5 = centerY + offsetY;
-                            x6 = centerX - halfEdge + offsetX;
-                            y6 = centerY - evenY + offsetY;
-
-                            <polygon points="@x1,@y1 @x2,@y2 @x3,@y3 @x4,@y4 @x5,@y5 @x6,@y6" style="fill-opacity:0.0;stroke:black;stroke-width:1" />
-                        }
-                    }
-                </svg>
-
-                @{ foreach (Hex h in Model.Hexes)
-                    {
-                        offsetX = h.Coords.X * sizeX * -1;
-                        offsetY = h.Coords.X % 2 == 0 ? h.Coords.Y * sizeY * -1 : h.Coords.Y * sizeY * -1 - evenY;
-
-                        textXstr = Convert.ToString(centerX + offsetX - 9) + "px";
-                        textYstr = Convert.ToString(centerY + offsetY - 10) + "px";
-                        <div style="position:absolute; top:@textYstr;left:@textXstr;">@h.Coords.X,@h.Coords.Y</div>
-                    }
-                }*@
         </div>
     </div>
 </div>

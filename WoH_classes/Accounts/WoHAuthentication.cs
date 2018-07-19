@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,7 +31,8 @@ namespace WoH_classes.Accounts
 
         public async Task SignInAsync(string email)
         {
-            await _signInManager.SignInAsync(new ApplicationUser { UserName = email, Email = email},false);
+            ApplicationUser user = await _userManager.FindByEmailAsync(email);
+            await _signInManager.SignInAsync(user,false);
         }
     }
 }
