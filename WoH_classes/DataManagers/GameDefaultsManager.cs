@@ -15,12 +15,33 @@ namespace WoH_classes.DataManagers
     {
         private static Dictionary<int, int> _defaultMapSizes;
 
-        private static GameDefaultsManager _instance;
-        private static string _filePath;
-
-        private GameDefaultsManager(Dictionary<int,int> defaultMapSizes)
+        public GameDefaultsManager(string filePath)
         {
-            _defaultMapSizes = defaultMapSizes;
+            if (!File.Exists(filePath))
+                throw new ArgumentException(CodeErrors.FileDoesntExists);
+
+            dynamic buffer;
+
+            using (StreamReader stream = new StreamReader(filePath))
+            {
+                buffer = JObject.Parse(stream.ReadToEnd());
+            }
+
+            JArray array = buffer[GameStrings.DefaultMapSizes];
+
+            int playersCount;
+            int mapSize;
+            Dictionary<int, int> mapSizes = new Dictionary<int, int>();
+
+            foreach (JObject obj in array)
+            {
+                playersCount = obj[GameStrings.PlayersCount].ToObject<int>();
+                mapSize = obj[GameStrings.MapSize].ToObject<int>();
+
+                mapSizes.Add(playersCount, mapSize);
+            }
+
+            _defaultMapSizes = mapSizes;
         }
 
         public MapShape GetDefaultMapShape(int playersCount)
@@ -30,48 +51,12 @@ namespace WoH_classes.DataManagers
 
         public int GetDefaultMapSize(int playersCount)
         {
-            if(!_defaultMapSizes.ContainsKey(playersCount))
+            if (!_defaultMapSizes.ContainsKey(playersCount))
             {
                 throw new InvalidOperationException(CodeErrors.NoSuitableMapSize);
             }
 
             return _defaultMapSizes.GetValueOrDefault(playersCount);
-        }
-
-        public static async Task<GameDefaultsManager> GetInstance(string filePath)
-        {
-            if (!File.Exists(filePath))
-                throw new ArgumentException(CodeErrors.FileDoesntExists);
-
-            if ( _instance == null || _filePath != filePath)
-            {
-                _filePath = filePath;
-
-                dynamic buffer;
-
-                using (StreamReader stream = new StreamReader(filePath))
-                {
-                    buffer = JObject.Parse(await stream.ReadToEndAsync());
-                }
-
-                JArray array = buffer[GameStrings.DefaultMapSizes];
-
-                int playersCount;
-                int mapSize;
-                Dictionary<int,int> mapSizes = new Dictionary<int, int>();
-
-                foreach (JObject obj in array)
-                {
-                    playersCount = obj[GameStrings.PlayersCount].ToObject<int>();
-                    mapSize = obj[GameStrings.MapSize].ToObject<int>();
-
-                    mapSizes.Add(playersCount, mapSize);
-                }
-
-                _instance = new GameDefaultsManager(mapSizes);
-            }
-
-            return _instance;
         }
     }
 }

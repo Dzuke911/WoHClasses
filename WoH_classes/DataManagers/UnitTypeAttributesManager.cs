@@ -13,12 +13,10 @@ namespace WoH_classes.Managers
     public class UnitTypeAttributesManager : IUnitTypeAttributesManager
     {
         private readonly string[] _attributes;
-        private static string _filePath;
-        private static UnitTypeAttributesManager _instance;
 
         public int GetAttributeID(string name)
         {
-            for( int i = 0; i < _attributes.Length; i++)
+            for (int i = 0; i < _attributes.Length; i++)
             {
                 if (name == _attributes[i])
                     return i;
@@ -27,33 +25,20 @@ namespace WoH_classes.Managers
             throw new InvalidOperationException(CodeErrors.UnitTypeAttributeNotExist);
         }
 
-        private UnitTypeAttributesManager(string[] attributes)
+        public UnitTypeAttributesManager(string filePath)
         {
-            _attributes = attributes;
-        }
+            if (!File.Exists(filePath)) { throw new ArgumentException(CodeErrors.FileDoesntExists); }
 
-        public static async Task<UnitTypeAttributesManager> GetInstance(string filePath)
-        {
-            if (!File.Exists(filePath))
-                throw new ArgumentException(CodeErrors.FileDoesntExists);
+            dynamic buffer;
 
-            if( _instance == null || _filePath != filePath)
+            using (StreamReader stream = new StreamReader(filePath))
             {
-                _filePath = filePath;
-
-                dynamic buffer;
-
-                using (StreamReader stream = new StreamReader(filePath))
-                {
-                    buffer = JObject.Parse(await stream.ReadToEndAsync());
-                }
-
-                JArray array = buffer[GameStrings.UnitTypeAttributes];
-
-                _instance = new UnitTypeAttributesManager(array.ToObject<string[]>());
+                buffer = JObject.Parse(stream.ReadToEnd());
             }
 
-            return _instance;
+            JArray array = buffer[GameStrings.UnitTypeAttributes];
+
+            _attributes = array.ToObject<string[]>();
         }
     }
 }

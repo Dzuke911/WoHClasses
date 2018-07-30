@@ -11,20 +11,19 @@ namespace WoH_classes_Tests
     public class GameDefaultsManagerTest
     {
         [Fact]
-        public async Task ConstructorSuccess_SingletonOk()
+        public void ConstructorSuccess_SingletonOk()
         {
-            GameDefaultsManager x1 = await GameDefaultsManager.GetInstance("GameData/GameDefaults.json");
-            GameDefaultsManager x2 = await GameDefaultsManager.GetInstance("GameData/GameDefaults.json");
+            GameDefaultsManager gdm = new GameDefaultsManager("GameData/GameDefaults.json");
 
-            Assert.Equal(x1.GetHashCode(), x2.GetHashCode());
+            Assert.NotNull(gdm);
         }
 
         [Theory]
         [InlineData(2, 8)]
         [InlineData(4, 12)]
-        public async Task GetMapSizeSuccess(int playersCount, int mapSize)
+        public void GetMapSizeSuccess(int playersCount, int mapSize)
         {
-            GameDefaultsManager gdm = await GameDefaultsManager.GetInstance("GameData/GameDefaults.json");
+            GameDefaultsManager gdm = new GameDefaultsManager("GameData/GameDefaults.json");
 
             int res = gdm.GetDefaultMapSize(playersCount);
 

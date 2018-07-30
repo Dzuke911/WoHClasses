@@ -10,18 +10,18 @@ namespace WoH_classes_Tests
     public class UnitTypeAttributesManagerTests
     {
         [Fact]
-        public async Task GetInstanceSuccess()
+        public void GetInstanceSuccess()
         {
-            UnitTypeAttributesManager x = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
+            UnitTypeAttributesManager utam = new UnitTypeAttributesManager("GameData/UnitTypeAttributes.json");
 
-            Assert.NotNull(x);
+            Assert.NotNull(utam);
         }
 
         [Fact]
-        public async Task GetInstanceFail_WrongFilePath()
+        public void GetInstanceFail_WrongFilePath()
         {
             //Assert
-            await Assert.ThrowsAsync<ArgumentException>( async () => { UnitTypeAttributesManager x = await UnitTypeAttributesManager.GetInstance("gg"); });
+            Assert.Throws<ArgumentException>(() => { UnitTypeAttributesManager utam = new UnitTypeAttributesManager("gg"); });
         }
     }
 }

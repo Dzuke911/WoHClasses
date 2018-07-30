@@ -21,44 +21,28 @@ namespace WoH_classes.Facade
     {
         public static IConfiguration Configuration { get; set; }
 
-        private static IUnitTypeAttributesManager _unitTypeAttributesManager;
-        private static IUnitTypesManager _unitTypesManager;
-        private static IGameDefaultsManager _gameDefaultsManager;
-
         public static void ConfigureServices(IServiceCollection services)
         {
             WoHDatabaseFacade.Configuration = Configuration;
             WoHDatabaseFacade.ConfigureServices(services);
             WoHDatabaseFacade.InitDatabase();
-
-            CreateDataManagers();
-
+            
             services.AddTransient(f => new MapFactory<Hex>());
+
+            services.AddSingleton<IUnitTypeAttributesManager, UnitTypeAttributesManager>(s => new UnitTypeAttributesManager("GameData/UnitTypeAttributes.json"));
+            services.AddSingleton<IUnitTypesManager, UnitTypesManager>(s => new UnitTypesManager("GameData/UnitTypes.json",s.GetService<IUnitTypeAttributesManager>()));
+            services.AddSingleton<IGameDefaultsManager, GameDefaultsManager>(s => new GameDefaultsManager("GameData/GameDefaults.json"));
 
             services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
             services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
-            services.AddTransient(s => _unitTypesManager);
-            services.AddTransient(s => _unitTypeAttributesManager);
 
             services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>() , s.GetService<SignInManager<ApplicationUser>>()));
 
             services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));
 
-            services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>(), _unitTypesManager, _unitTypeAttributesManager));
+            services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>(), s.GetService<IUnitTypesManager>(), s.GetService<IUnitTypeAttributesManager>()));
             services.AddTransient<IGamesManager, GamesManager>(s => new GamesManager(s.GetService<IGamesFactory>()));
-        }
-
-        private static void CreateDataManagers()
-        {
-            Task<UnitTypeAttributesManager> utam = UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
-            _unitTypeAttributesManager = utam.Result;
-
-            Task<UnitTypesManager> utm = UnitTypesManager.GetInstance("GameData/UnitTypes.json", _unitTypeAttributesManager);
-            _unitTypesManager = utm.Result;
-
-            Task<GameDefaultsManager> gdm = GameDefaultsManager.GetInstance("GameData/GameDefaults.json");
-            _gameDefaultsManager = gdm.Result;
         }
     }
 }

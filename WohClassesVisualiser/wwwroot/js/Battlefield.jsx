@@ -4,8 +4,6 @@
         super(props);
         this.state = { map: [] };
 
-        //this.onAddPhone = this.onAddPhone.bind(this);
-        //this.onRemovePhone = this.onRemovePhone.bind(this);
     }
 
     // загрузка данных

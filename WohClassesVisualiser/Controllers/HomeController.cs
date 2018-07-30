@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
 using WoH_classes.GameFactories;
+using WoH_classes.Interfaces;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
 using Woh_Visualiser.Models;
@@ -18,8 +19,13 @@ namespace Woh_Visualiser.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public HomeController(MapFactory<Hex> mapFactory)
+        private IUnitTypeAttributesManager _unitTypeAttributesManager;
+        private IUnitTypesManager _unitTypesManger;
+
+        public HomeController(MapFactory<Hex> mapFactory, IUnitTypeAttributesManager unitTypeAttributesManager, IUnitTypesManager unitTypesManger)
         {
+            _unitTypeAttributesManager = unitTypeAttributesManager;
+            _unitTypesManger = unitTypesManger;
             _mapFactory = mapFactory;
         }
 
@@ -52,17 +58,14 @@ namespace Woh_Visualiser.Controllers
             Map<Hex> map = _mapFactory.CreateMap(MapShape.Circle, 5);
             GameUnitsManager um = new GameUnitsManager();
 
-            UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
-            UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
-
             GamePlayersManager pm = new GamePlayersManager(new GameTeamsFactory());
             Player p = new Player(playerId);
 
             pm.AddTeam(p);
 
-            Unit u1 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
-            Unit u2 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.BottomLeft);
-            Unit u3 = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, -1), p, HexDirection.TopRight);
+            Unit u1 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
+            Unit u2 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.BottomLeft);
+            Unit u3 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, -1), p, HexDirection.TopRight);
 
             um.AddUnit(u1);
             um.AddUnit(u2);

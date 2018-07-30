@@ -8,11 +8,12 @@ using WoH_classes.Enums;
 using WoH_classes.GameFactories;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
+using WoH_Data;
 using Xunit;
 
 namespace WoH_classes_Tests
 {
-    public class UnitsManagerTests
+    public class UnitsManagerTests : BaseTestClass
     {
         const string playerId = "asd";
         GameUnitsManager um;
@@ -32,14 +33,11 @@ namespace WoH_classes_Tests
         }
 
         [Fact]
-        public async Task AddUnitSuccess()
+        public void AddUnitSuccess()
         {
             //Arrange            
-            
-            UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
-            UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
-                                                  
-            Unit u = new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
+
+            Unit u = new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
 
             //Act
             um.AddUnit(u);
@@ -50,15 +48,13 @@ namespace WoH_classes_Tests
         }
 
         [Fact]
-        public async Task ToJsonSuccess()
+        public void ToJsonSuccess()
         {
             //Arrange
-            UnitTypeAttributesManager utaManager = await UnitTypeAttributesManager.GetInstance("GameData/UnitTypeAttributes.json");
-            UnitTypesManager utManager = await UnitTypesManager.GetInstance("GameData/UnitTypes.json", utaManager);
 
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
-            um.AddUnit(new Unit(utManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.Top));
+            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
+            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
+            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.Top));
 
             //Act
             JObject obj = um.ToJson();
