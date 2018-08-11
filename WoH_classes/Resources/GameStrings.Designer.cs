@@ -79,6 +79,15 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MapSize.
         /// </summary>
         internal static string MapSize {
@@ -88,20 +97,20 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PlayersCount.
         /// </summary>
         internal static string PlayersCount {
             get {
                 return ResourceManager.GetString("PlayersCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UnitName.
-        /// </summary>
-        internal static string UnitName {
-            get {
-                return ResourceManager.GetString("UnitName", resourceCulture);
             }
         }
         

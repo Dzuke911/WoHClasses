@@ -13,9 +13,9 @@ namespace WoH_classes.Conditions
         public ConditionType Type { get; }
 
         private readonly Unit _unit;
-        private readonly int _attributeId;
+        private readonly string _attributeId;
 
-        public UnitHasAttribute_Condition( Unit unit, int attributeId)
+        public UnitHasAttribute_Condition( Unit unit, string attributeId)
         {
             _unit = unit;
             _attributeId = attributeId;
@@ -23,7 +23,10 @@ namespace WoH_classes.Conditions
 
         public bool Check()
         {
-            return _unit.Type.AttributesID.Contains(_attributeId);
+            if (_unit.Type.Attributes.SingleOrDefault(a => a.Id == _attributeId) == null)
+                return false;
+
+            return true;
         }
     }
 }

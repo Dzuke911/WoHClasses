@@ -123,14 +123,17 @@
   <data name="GameUnits" xml:space="preserve">
     <value>GameUnits</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="MapSize" xml:space="preserve">
     <value>MapSize</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="PlayersCount" xml:space="preserve">
     <value>PlayersCount</value>
-  </data>
-  <data name="UnitName" xml:space="preserve">
-    <value>UnitName</value>
   </data>
   <data name="UnitTypeAttributes" xml:space="preserve">
     <value>UnitTypeAttribute</value>

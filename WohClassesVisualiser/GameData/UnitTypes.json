@@ -1,12 +1,14 @@
-﻿{
+{
   "UnitType":[
 
- 	{"UnitName":"SovietTank",
-	"UnitTypeAttribute":["HeavyTank"]
+ 	{"Id":"SovietTank_Unit",
+	"Name":"SovietTank",
+	"UnitTypeAttribute":["HeavyTankAttr"]
 	},
 
-	{"UnitName":"GermanTank",
-	"UnitTypeAttribute":["MediumTank"]
+	{"Id":"GermanTank_Unit",
+	"Name":"GermanTank",
+	"UnitTypeAttribute":["LightTankAttr"]
 	}
 
 	]

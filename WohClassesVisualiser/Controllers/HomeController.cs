@@ -63,9 +63,9 @@ namespace Woh_Visualiser.Controllers
 
             pm.AddTeam(p);
 
-            Unit u1 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
-            Unit u2 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.BottomLeft);
-            Unit u3 = new Unit(_unitTypesManger.GetUnitType("GermanTank"), map.GetHex(0, -1), p, HexDirection.TopRight);
+            Unit u1 = new Unit(_unitTypesManger.GetUnitType("GermanTank_Unit"), map.GetHex(0, 0), p, HexDirection.Top);
+            Unit u2 = new Unit(_unitTypesManger.GetUnitType("GermanTank_Unit"), map.GetHex(0, 1), p, HexDirection.BottomLeft);
+            Unit u3 = new Unit(_unitTypesManger.GetUnitType("SovietTank_Unit"), map.GetHex(0, -1), p, HexDirection.TopRight);
 
             um.AddUnit(u1);
             um.AddUnit(u2);

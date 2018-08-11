@@ -1,3 +1,7 @@
-﻿{
-  "UnitTypeAttribute":["Infantry","HeavyTank","MediumTank"]
+{
+  "UnitTypeAttribute":[
+{"Id":"InfantryAttr","Name":"Infantry"},
+{"Id":"HeavyTankAttr","Name":"Heavy Tank"},
+{"Id":"LightTankAttr","Name":"Light Tank"}
+]
 }

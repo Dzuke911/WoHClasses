@@ -3,8 +3,10 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WoH_classes.BasicClasses;
 using WoH_classes.Interfaces;
 using WoH_classes.Resources;
 
@@ -12,17 +14,18 @@ namespace WoH_classes.Managers
 {
     public class UnitTypeAttributesManager : IUnitTypeAttributesManager
     {
-        private readonly string[] _attributes;
+        private readonly List<UnitTypeAttribute> _attributes;
 
-        public int GetAttributeID(string name)
+        public UnitTypeAttribute GetAttribute(string id)
         {
-            for (int i = 0; i < _attributes.Length; i++)
+            try
             {
-                if (name == _attributes[i])
-                    return i;
+                return _attributes.Single(a => a.Id == id);
             }
-
-            throw new InvalidOperationException(CodeErrors.UnitTypeAttributeNotExist);
+            catch
+            {
+                throw new InvalidOperationException(CodeErrors.UnitTypeAttributeNotExist);
+            }                        
         }
 
         public UnitTypeAttributesManager(string filePath)
@@ -38,7 +41,12 @@ namespace WoH_classes.Managers
 
             JArray array = buffer[GameStrings.UnitTypeAttributes];
 
-            _attributes = array.ToObject<string[]>();
+            _attributes = new List<UnitTypeAttribute>();
+
+            foreach(JObject obj in array)
+            {
+                _attributes.Add(new UnitTypeAttribute(obj[GameStrings.Id].ToObject<string>(), obj[GameStrings.Name].ToObject<string>()));
+            }
         }
     }
 }

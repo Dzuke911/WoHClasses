@@ -29,34 +29,34 @@ namespace WoH_classes.Managers
 
             JArray array = buffer[GameStrings.UnitTypes];
 
+            string Id;
             string unitName;
             string[] attributes;
             List<UnitType> list = new List<UnitType>();
-            int i = 0;
-            int[] attributesInt;
+            List<UnitTypeAttribute> attributesList;
 
             foreach (JObject obj in array)
             {
-                unitName = obj[GameStrings.UnitName].ToObject<string>();
+                Id = obj[GameStrings.Id].ToObject<string>();
+                unitName = obj[GameStrings.Name].ToObject<string>();
                 attributes = obj[GameStrings.UnitTypeAttributes].ToObject<string[]>();
 
-                attributesInt = new int[attributes.Length];
+                attributesList = new List<UnitTypeAttribute>();
 
-                for (int j = 0; j < attributes.Length; j++)
+                foreach(string attrId in attributes)
                 {
-                    attributesInt[j] = unitTypeAttributesManager.GetAttributeID(attributes[j]);
+                    attributesList.Add(unitTypeAttributesManager.GetAttribute(attrId));
                 }
 
-                list.Add(new UnitType(i, unitName, attributesInt));
-                i++;
+                list.Add(new UnitType(Id, unitName, attributesList));
             }
 
             _unitTypes = list;
         }
 
-        public UnitType GetUnitType(string typeName)
+        public UnitType GetUnitType(string Id)
         {
-            return _unitTypes.SingleOrDefault(ut => ut.Name == typeName);
+            return _unitTypes.SingleOrDefault(ut => ut.Id == Id);
         }
     }
 }
