@@ -45,5 +45,10 @@ namespace WoH_classes.BasicClasses
         {
             return _players.Contains(player);
         }
+
+        public int Count()
+        {
+            return _players.Count;
+        }
     }
 }
