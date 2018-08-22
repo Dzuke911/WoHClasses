@@ -50,5 +50,10 @@ namespace WoH_classes.BasicClasses
         {
             return _players.Count;
         }
+
+        public IEnumerable<Player> GetPlayers()
+        {
+            return _players;
+        }
     }
 }

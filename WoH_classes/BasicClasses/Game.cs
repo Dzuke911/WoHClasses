@@ -22,15 +22,35 @@ namespace WoH_classes.BasicClasses
             IGameUnitsManager unitsManager,
             IUnitTypesManager unitTypesManager,
             IUnitTypeAttributesManager unitTypeAttributesManager,
-            IGamePlayersManager gamePlayersManager)
+            IGamePlayersManager gamePlayersManager,
+            IGameStartModel gameStartModel)
         {
             _id = id;
             _gameUnitsManager = unitsManager;
             _unitTypesManager = unitTypesManager;
             _unitTypeAttributesManager = unitTypeAttributesManager;
             _gamePlayersManager = gamePlayersManager;
+
+            AddTeams(gameStartModel);
         }
 
         public int Id { get => _id; }
+
+        private void AddTeams(IGameStartModel gameStartModel)
+        {
+            List<Player> players;
+
+            foreach(Team tm in gameStartModel.GetTeams())
+            {
+                players = new List<Player>();
+
+                foreach (Player p in tm.GetPlayers())
+                {
+                    players.Add(p);
+                }
+
+                _gamePlayersManager.AddTeam(players.ToArray());
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace WoH_classes.GameFactories
 
         public IGame GetNewGame(int id , IGameStartModel gameStartModel)
         {
-            Game game = new Game(id, _gameManagersFactory.GetUnitsManager(),_unitTypesManager,_unitTypeAttributesManager, _gameManagersFactory.GetPlayersManager());
+            Game game = new Game(id, _gameManagersFactory.GetUnitsManager(),_unitTypesManager,_unitTypeAttributesManager, _gameManagersFactory.GetPlayersManager(), gameStartModel);
 
             return game;
         }

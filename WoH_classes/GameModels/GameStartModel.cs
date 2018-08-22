@@ -18,7 +18,12 @@ namespace WoH_classes.GameModels
 
             foreach(Team tm in teams)
             {
-                if(tm.Count() == 0)
+                if (tm == null)
+                {
+                    throw new ArgumentNullException(nameof(teams));
+                }
+
+                if (tm.Count() == 0)
                 {
                     isValid = false;
                 }
@@ -27,6 +32,11 @@ namespace WoH_classes.GameModels
                     _teams.Add(tm);
                 }
             }
+        }
+
+        public IEnumerable<Team> GetTeams()
+        {
+            return _teams;
         }
     }
 }
