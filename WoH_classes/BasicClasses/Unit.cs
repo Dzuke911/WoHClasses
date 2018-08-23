@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using WoH_classes.Enums;
-using WoH_classes.Resources;
+using WoH_Resources.Resources;
 
 namespace WoH_classes.BasicClasses
 {

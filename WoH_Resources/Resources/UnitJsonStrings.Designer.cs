@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WoH_classes.Resources {
+namespace WoH_Resources.Resources {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace WoH_classes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GameStrings {
+    public class UnitJsonStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GameStrings() {
+        internal UnitJsonStrings() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.GameStrings", typeof(GameStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_Resources.Resources.UnitJsonStrings", typeof(UnitJsonStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace WoH_classes.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,74 +61,47 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DefaultMapSizes.
+        ///   Looks up a localized string similar to UnitDirection.
         /// </summary>
-        internal static string DefaultMapSizes {
+        public static string UnitDirection {
             get {
-                return ResourceManager.GetString("DefaultMapSizes", resourceCulture);
+                return ResourceManager.GetString("UnitDirection", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GameUnits.
+        ///   Looks up a localized string similar to UnitOwner.
         /// </summary>
-        internal static string GameUnits {
+        public static string UnitOwner {
             get {
-                return ResourceManager.GetString("GameUnits", resourceCulture);
+                return ResourceManager.GetString("UnitOwner", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Id.
+        ///   Looks up a localized string similar to UnitPosition.
         /// </summary>
-        internal static string Id {
+        public static string UnitPosition {
             get {
-                return ResourceManager.GetString("Id", resourceCulture);
+                return ResourceManager.GetString("UnitPosition", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MapSize.
+        ///   Looks up a localized string similar to UnitTypeId.
         /// </summary>
-        internal static string MapSize {
+        public static string UnitTypeId {
             get {
-                return ResourceManager.GetString("MapSize", resourceCulture);
+                return ResourceManager.GetString("UnitTypeId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to UnitTypeName.
         /// </summary>
-        internal static string Name {
+        public static string UnitTypeName {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to PlayersCount.
-        /// </summary>
-        internal static string PlayersCount {
-            get {
-                return ResourceManager.GetString("PlayersCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UnitTypeAttribute.
-        /// </summary>
-        internal static string UnitTypeAttributes {
-            get {
-                return ResourceManager.GetString("UnitTypeAttributes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UnitType.
-        /// </summary>
-        internal static string UnitTypes {
-            get {
-                return ResourceManager.GetString("UnitTypes", resourceCulture);
+                return ResourceManager.GetString("UnitTypeName", resourceCulture);
             }
         }
     }

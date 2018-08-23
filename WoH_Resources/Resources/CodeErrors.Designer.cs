@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WoH_classes.Resources {
+namespace WoH_Resources.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace WoH_classes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CodeErrors {
+    public class CodeErrors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace WoH_classes.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.CodeErrors", typeof(CodeErrors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_Resources.Resources.CodeErrors", typeof(CodeErrors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace WoH_classes.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,9 @@ namespace WoH_classes.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can`t add this unit to this hex.
+        ///   Looks up a localized string similar to Can`t add this unit to this hex..
         /// </summary>
-        internal static string CantAddUnitToHex {
+        public static string CantAddUnitToHex {
             get {
                 return ResourceManager.GetString("CantAddUnitToHex", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Can`t create team with no players.
         /// </summary>
-        internal static string CantCreateEmptyTeam {
+        public static string CantCreateEmptyTeam {
             get {
                 return ResourceManager.GetString("CantCreateEmptyTeam", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to File doesn`t exists..
         /// </summary>
-        internal static string FileDoesntExists {
+        public static string FileDoesntExists {
             get {
                 return ResourceManager.GetString("FileDoesntExists", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Can`t create Hex.
         /// </summary>
-        internal static string InvalidHexCreation {
+        public static string InvalidHexCreation {
             get {
                 return ResourceManager.GetString("InvalidHexCreation", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Can`t create Hex by reflection, Hex must be inherited from BaseHex.
         /// </summary>
-        internal static string InvalidHexType {
+        public static string InvalidHexType {
             get {
                 return ResourceManager.GetString("InvalidHexType", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Map isn`t valid, center hex is null.
         /// </summary>
-        internal static string MapNotCreated {
+        public static string MapNotCreated {
             get {
                 return ResourceManager.GetString("MapNotCreated", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to There is no suitable map size in defaults.
         /// </summary>
-        internal static string NoSuitableMapSize {
+        public static string NoSuitableMapSize {
             get {
                 return ResourceManager.GetString("NoSuitableMapSize", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unit isnt registered on UnitManager.
         /// </summary>
-        internal static string UnitIsntInUm {
+        public static string UnitIsntInUm {
             get {
                 return ResourceManager.GetString("UnitIsntInUm", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unit isn`t on this hex.
         /// </summary>
-        internal static string UnitIsntOnHex {
+        public static string UnitIsntOnHex {
             get {
                 return ResourceManager.GetString("UnitIsntOnHex", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unknown UnitTypeAttribute.
         /// </summary>
-        internal static string UnitTypeAttributeNotExist {
+        public static string UnitTypeAttributeNotExist {
             get {
                 return ResourceManager.GetString("UnitTypeAttributeNotExist", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unknown HexDirection.
         /// </summary>
-        internal static string UnknownHexDirection {
+        public static string UnknownHexDirection {
             get {
                 return ResourceManager.GetString("UnknownHexDirection", resourceCulture);
             }

@@ -14,6 +14,7 @@ using WoH_classes.Interfaces;
 using WoH_classes.Managers;
 using WoH_classes.Maps;
 using WoH_Data;
+using WoH_GameData.GameDataFacade;
 
 namespace WoH_classes.Facade
 {
@@ -26,6 +27,9 @@ namespace WoH_classes.Facade
             WoHDatabaseFacade.Configuration = Configuration;
             WoHDatabaseFacade.ConfigureServices(services);
             WoHDatabaseFacade.InitDatabase();
+
+            GameDataFacade.Configuration = Configuration;
+            GameDataFacade.ConfigureServices(services);
             
             services.AddTransient(f => new MapFactory<Hex>());
 

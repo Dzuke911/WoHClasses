@@ -120,6 +120,9 @@
   <data name="DefaultMapSizes" xml:space="preserve">
     <value>DefaultMapSizes</value>
   </data>
+  <data name="EntitiesPairs" xml:space="preserve">
+    <value>Entities</value>
+  </data>
   <data name="GameUnits" xml:space="preserve">
     <value>GameUnits</value>
   </data>
@@ -132,8 +135,14 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
   <data name="PlayersCount" xml:space="preserve">
     <value>PlayersCount</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="UnitTypeAttributes" xml:space="preserve">
     <value>UnitTypeAttribute</value>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WoH_classes.Resources {
+namespace WoH_Resources.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace WoH_classes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MapJsonStrings {
+    public class MapJsonStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace WoH_classes.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_classes.Resources.MapJsonStrings", typeof(MapJsonStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WoH_Resources.Resources.MapJsonStrings", typeof(MapJsonStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace WoH_classes.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to BottomHexId.
         /// </summary>
-        internal static string BottomHexId {
+        public static string BottomHexId {
             get {
                 return ResourceManager.GetString("BottomHexId", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to BottomLeftHexId.
         /// </summary>
-        internal static string BottomLeftHexId {
+        public static string BottomLeftHexId {
             get {
                 return ResourceManager.GetString("BottomLeftHexId", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to BottomRightHexId.
         /// </summary>
-        internal static string BottomRightHexId {
+        public static string BottomRightHexId {
             get {
                 return ResourceManager.GetString("BottomRightHexId", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Hexes.
         /// </summary>
-        internal static string Hexes {
+        public static string Hexes {
             get {
                 return ResourceManager.GetString("Hexes", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
-        internal static string HexId {
+        public static string HexId {
             get {
                 return ResourceManager.GetString("HexId", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to LengthX.
         /// </summary>
-        internal static string LengthX {
+        public static string LengthX {
             get {
                 return ResourceManager.GetString("LengthX", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to LengthY.
         /// </summary>
-        internal static string LengthY {
+        public static string LengthY {
             get {
                 return ResourceManager.GetString("LengthY", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to OffsetX.
         /// </summary>
-        internal static string OffsetX {
+        public static string OffsetX {
             get {
                 return ResourceManager.GetString("OffsetX", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to OffsetY.
         /// </summary>
-        internal static string OffsetY {
+        public static string OffsetY {
             get {
                 return ResourceManager.GetString("OffsetY", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to TopHexId.
         /// </summary>
-        internal static string TopHexId {
+        public static string TopHexId {
             get {
                 return ResourceManager.GetString("TopHexId", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to TopLeftHexId.
         /// </summary>
-        internal static string TopLeftHexId {
+        public static string TopLeftHexId {
             get {
                 return ResourceManager.GetString("TopLeftHexId", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to TopRightHexId.
         /// </summary>
-        internal static string TopRightHexId {
+        public static string TopRightHexId {
             get {
                 return ResourceManager.GetString("TopRightHexId", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to UnitsId.
         /// </summary>
-        internal static string UnitsId {
+        public static string UnitsId {
             get {
                 return ResourceManager.GetString("UnitsId", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to X.
         /// </summary>
-        internal static string XCoord {
+        public static string XCoord {
             get {
                 return ResourceManager.GetString("XCoord", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace WoH_classes.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Y.
         /// </summary>
-        internal static string YCoord {
+        public static string YCoord {
             get {
                 return ResourceManager.GetString("YCoord", resourceCulture);
             }

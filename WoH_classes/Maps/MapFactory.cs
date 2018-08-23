@@ -5,7 +5,7 @@ using System.Text;
 using WoH_classes.BasicClasses;
 using WoH_classes.Enums;
 using WoH_classes.Interfaces;
-using WoH_classes.Resources;
+using WoH_Resources.Resources;
 
 namespace WoH_classes.Maps
 {

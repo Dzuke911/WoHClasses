@@ -4,10 +4,10 @@ using System.Text;
 using WoH_classes.Interfaces;
 using System.Linq;
 using WoH_classes.BasicClasses;
-using WoH_classes.Resources;
 using WoH_classes.Enums;
 using Newtonsoft.Json.Linq;
 using WoH_classes.Managers;
+using WoH_Resources.Resources;
 
 namespace WoH_classes.Maps
 {
