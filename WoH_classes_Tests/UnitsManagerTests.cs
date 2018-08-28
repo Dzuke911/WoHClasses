@@ -32,35 +32,35 @@ namespace WoH_classes_Tests
             pm.AddTeam(p);
         }
 
-        [Fact]
-        public void AddUnitSuccess()
-        {
-            //Arrange            
+        //[Fact]
+        //public void AddUnitSuccess()
+        //{
+        //    //Arrange            
 
-            Unit u = new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
+        //    Unit u = new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top);
 
-            //Act
-            um.AddUnit(u);
-            bool result = um.IsInUnits(u);
+        //    //Act
+        //    um.AddUnit(u);
+        //    bool result = um.IsInUnits(u);
 
-            //Assert
-            Assert.True(result);
-        }
+        //    //Assert
+        //    Assert.True(result);
+        //}
 
-        [Fact]
-        public void ToJsonSuccess()
-        {
-            //Arrange
+        //[Fact]
+        //public void ToJsonSuccess()
+        //{
+        //    //Arrange
 
-            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
-            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
-            um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.Top));
+        //    um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 0), p, HexDirection.Top));
+        //    um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(1, 0), p, HexDirection.Top));
+        //    um.AddUnit(new Unit(_unitTypesManager.GetUnitType("GermanTank"), map.GetHex(0, 1), p, HexDirection.Top));
 
-            //Act
-            JObject obj = um.ToJson();
+        //    //Act
+        //    JObject obj = um.ToJson();
 
-            //Assert
-            Assert.NotNull(obj);
-        }
+        //    //Assert
+        //    Assert.NotNull(obj);
+        //}
     }
 }

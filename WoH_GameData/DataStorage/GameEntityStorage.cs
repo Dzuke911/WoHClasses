@@ -28,5 +28,10 @@ namespace WoH_GameData.DataStorage
 
             _list.Add(obj);
         }
+
+        internal GameObject GetEntity(string id)
+        {
+            return _list.SingleOrDefault(e => e.Id == id);
+        }
     }
 }

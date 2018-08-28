@@ -3,12 +3,16 @@
 
  	{"Id":"SovietTank_Unit",
 	"Name":"SovietTank",
-	"UnitTypeAttribute":["HeavyTankAttr"]
+	"Attributes":["HeavyTankAttr"],
+	"MaxLife":"100.0",
+	"UnitRace":"Human_Race"
 	},
 
 	{"Id":"GermanTank_Unit",
 	"Name":"GermanTank",
-	"UnitTypeAttribute":["LightTankAttr"]
+	"Attributes":["LightTankAttr"],
+	"MaxLife":"125.25",
+	"UnitRace":"Orc_Race"
 	}
 
 	]

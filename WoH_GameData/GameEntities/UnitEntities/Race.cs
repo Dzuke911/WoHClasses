@@ -4,11 +4,10 @@ using System.Text;
 
 namespace WoH_GameData.GameEntities.UnitEntities
 {
-    public class UnitTypeAttribute : GameObject
+    public class Race : GameObject
     {
-        public UnitTypeAttribute(string id, string name) : base(id, name)
+        public Race(string id, string name) : base(id, name)
         {
-
         }
     }
 }

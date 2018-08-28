@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using WoH_classes.Enums;
 using WoH_Resources.Resources;
+using WoH_GameData.GameEntities.UnitEntities;
 
 namespace WoH_classes.BasicClasses
 {
@@ -16,7 +17,7 @@ namespace WoH_classes.BasicClasses
 
         public HexDirection Direction { get; set; }
 
-        public Unit( UnitType type, Hex pos, Player owner, HexDirection direction)
+        public Unit(WoH_GameData.GameEntities.UnitEntities.UnitType type, Hex pos, Player owner, HexDirection direction)
         {
             Type = type;
             Owner = owner;

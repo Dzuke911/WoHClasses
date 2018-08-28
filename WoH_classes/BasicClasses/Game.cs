@@ -15,20 +15,13 @@ namespace WoH_classes.BasicClasses
         private readonly IGameUnitsManager _gameUnitsManager;
         private readonly IGamePlayersManager _gamePlayersManager;
 
-        private readonly IUnitTypesManager _unitTypesManager;
-        private readonly IUnitTypeAttributesManager _unitTypeAttributesManager;
-
         public Game(int id,
             IGameUnitsManager unitsManager,
-            IUnitTypesManager unitTypesManager,
-            IUnitTypeAttributesManager unitTypeAttributesManager,
             IGamePlayersManager gamePlayersManager,
             IGameStartModel gameStartModel)
         {
             _id = id;
             _gameUnitsManager = unitsManager;
-            _unitTypesManager = unitTypesManager;
-            _unitTypeAttributesManager = unitTypeAttributesManager;
             _gamePlayersManager = gamePlayersManager;
 
             AddTeams(gameStartModel);

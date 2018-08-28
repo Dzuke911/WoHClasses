@@ -7,7 +7,7 @@ using WoH_GameData.Interfaces;
 
 namespace WoH_GameData.DataStorage
 {
-    class GameDataStorage : IGameDataStorage
+    public class GameDataStorage : IGameDataStorage
     {
         private readonly List<GameEntityStorage> _entities;
 
@@ -41,6 +41,13 @@ namespace WoH_GameData.DataStorage
         internal void AddEntity(GameObject obj, GameEntityStorage storage)
         {
             storage.AddEntity(obj);
+        }
+
+        public GameObject GetEntity(Type type, string id)
+        {
+            GameEntityStorage smallStorage = _entities.SingleOrDefault(e => e.EntityType == type);
+
+            return smallStorage.GetEntity(id);
         }
     }
 }

@@ -33,8 +33,8 @@ namespace WoH_classes.Facade
             
             services.AddTransient(f => new MapFactory<Hex>());
 
-            services.AddSingleton<IUnitTypeAttributesManager, UnitTypeAttributesManager>(s => new UnitTypeAttributesManager("GameData/UnitTypeAttributes.json"));
-            services.AddSingleton<IUnitTypesManager, UnitTypesManager>(s => new UnitTypesManager("GameData/UnitTypes.json",s.GetService<IUnitTypeAttributesManager>()));
+            //services.AddSingleton<IUnitTypeAttributesManager, UnitTypeAttributesManager>(s => new UnitTypeAttributesManager("GameData/UnitTypeAttributes.json"));
+            //services.AddSingleton<IUnitTypesManager, UnitTypesManager>(s => new UnitTypesManager("GameData/UnitTypes.json",s.GetService<IUnitTypeAttributesManager>()));
             services.AddSingleton<IGameDefaultsManager, GameDefaultsManager>(s => new GameDefaultsManager("GameData/GameDefaults.json"));
 
             services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
@@ -45,7 +45,7 @@ namespace WoH_classes.Facade
             services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));
 
-            services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>(), s.GetService<IUnitTypesManager>(), s.GetService<IUnitTypeAttributesManager>()));
+            services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>()));
             services.AddTransient<IGamesManager, GamesManager>(s => new GamesManager(s.GetService<IGamesFactory>()));
         }
     }

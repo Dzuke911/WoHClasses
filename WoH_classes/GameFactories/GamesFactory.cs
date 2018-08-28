@@ -9,21 +9,15 @@ namespace WoH_classes.GameFactories
     public class GamesFactory : IGamesFactory
     {
         private readonly IGameManagersFactory _gameManagersFactory;
-        private readonly IUnitTypesManager _unitTypesManager;
-        private readonly IUnitTypeAttributesManager _unitTypeAttributesManager;
 
-        public GamesFactory(IGameManagersFactory gameManagersFactory,
-                    IUnitTypesManager unitTypesManager,
-                    IUnitTypeAttributesManager unitTypeAttributesManager)
+        public GamesFactory(IGameManagersFactory gameManagersFactory)
         {
             _gameManagersFactory = gameManagersFactory;
-            _unitTypesManager = unitTypesManager;
-            _unitTypeAttributesManager = unitTypeAttributesManager;
         }
 
         public IGame GetNewGame(int id , IGameStartModel gameStartModel)
         {
-            Game game = new Game(id, _gameManagersFactory.GetUnitsManager(),_unitTypesManager,_unitTypeAttributesManager, _gameManagersFactory.GetPlayersManager(), gameStartModel);
+            Game game = new Game(id, _gameManagersFactory.GetUnitsManager(), _gameManagersFactory.GetPlayersManager(), gameStartModel);
 
             return game;
         }

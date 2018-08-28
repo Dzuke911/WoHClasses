@@ -1,0 +1,13 @@
+{
+  "Race":[
+
+ 	{"Id":"Human_Race",
+	"Name":"Human"
+	},
+
+ 	{"Id":"Orc_Race",
+	"Name":"Orc"
+	}
+
+	]
+}

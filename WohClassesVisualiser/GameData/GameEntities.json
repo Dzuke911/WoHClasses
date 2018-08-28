@@ -1,12 +1,16 @@
 {
-	"Entities":[
-		{
-  			"Type":"UnitTypeAttribute",
-  			"Path":"GameData/UnitTypeAttributes.json"
-		},
-		{
-  			"Type":"UnitType",
-  			"Path":"GameData/UnitTypes.json"
-		}
-	]
+  "Entities": [
+    {
+      "Type": "UnitTypeAttribute",
+      "Path": "GameData/UnitTypeAttributes.json"
+    },
+    {
+      "Type": "Race",
+      "Path": "GameData/UnitTypeRaces.json"
+    },
+    {
+      "Type": "UnitType",
+      "Path": "GameData/UnitTypes.json"
+    }
+  ]
 }

@@ -16,14 +16,8 @@ namespace WoH_GameData.GameDataFacade
 
         public static void ConfigureServices(IServiceCollection services)
         {
-            string gameEntities = Configuration.GetConnectionString("GameEntities");
-
-            GameDataLoader x = new GameDataLoader();
-
-            x.GetStorage(gameEntities);
-
             services.AddSingleton<IGameDataLoader,GameDataLoader>( s => new GameDataLoader());
-            services.AddSingleton<IGameDataStorage, GameDataStorage>(s => new GameDataStorage());
+            services.AddSingleton<IGameDataStorage, GameDataStorage>(s => s.GetService<IGameDataLoader>().GetStorage(Configuration.GetConnectionString("GameEntities")));
         }
     }
 }

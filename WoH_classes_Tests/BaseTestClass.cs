@@ -22,8 +22,6 @@ namespace WoH_classes_Tests
     public  class BaseTestClass
     {
         private IServiceCollection _services;
-        protected IUnitTypeAttributesManager _unitTypeAttributesManager;
-        protected IUnitTypesManager _unitTypesManager;
         protected IGameDefaultsManager _gameDefaultsManager;
 
         public BaseTestClass()
@@ -32,8 +30,6 @@ namespace WoH_classes_Tests
 
             _services.AddTransient(f => new MapFactory<Hex>());
 
-            _services.AddSingleton<IUnitTypeAttributesManager, UnitTypeAttributesManager>(s => new UnitTypeAttributesManager("GameData/UnitTypeAttributes.json"));
-            _services.AddSingleton<IUnitTypesManager, UnitTypesManager>(s => new UnitTypesManager("GameData/UnitTypes.json", s.GetService<IUnitTypeAttributesManager>()));
             _services.AddSingleton<IGameDefaultsManager, GameDefaultsManager>(s => new GameDefaultsManager("GameData/GameDefaults.json"));
 
             _services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
@@ -44,11 +40,9 @@ namespace WoH_classes_Tests
             _services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             _services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));
 
-            _services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>(), s.GetService<IUnitTypesManager>(), s.GetService<IUnitTypeAttributesManager>()));
+            _services.AddTransient<IGamesFactory, GamesFactory>(s => new GamesFactory(s.GetService<IGameManagersFactory>()));
             _services.AddTransient<IGamesManager, GamesManager>(s => new GamesManager(s.GetService<IGamesFactory>()));
 
-            _unitTypeAttributesManager = _services.BuildServiceProvider().GetService<IUnitTypeAttributesManager>();
-            _unitTypesManager = _services.BuildServiceProvider().GetService<IUnitTypesManager>();
             _gameDefaultsManager = _services.BuildServiceProvider().GetService<IGameDefaultsManager>();
         }
     }
