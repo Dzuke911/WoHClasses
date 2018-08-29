@@ -123,6 +123,9 @@
   <data name="CantCreateEmptyTeam" xml:space="preserve">
     <value>Can`t create team with no players</value>
   </data>
+  <data name="CantFindType" xml:space="preserve">
+    <value>Can`t find type by name</value>
+  </data>
   <data name="FileDoesntExists" xml:space="preserve">
     <value>File doesn`t exists.</value>
   </data>
@@ -137,6 +140,12 @@
   </data>
   <data name="NoSuitableMapSize" xml:space="preserve">
     <value>There is no suitable map size in defaults</value>
+  </data>
+  <data name="TypeIsntGameObject" xml:space="preserve">
+    <value>Type isn`t inherited from GameObject type</value>
+  </data>
+  <data name="TypeNoConstructor" xml:space="preserve">
+    <value> type have no proper constructor</value>
   </data>
   <data name="UnitIsntInUm" xml:space="preserve">
     <value>Unit isnt registered on UnitManager</value>

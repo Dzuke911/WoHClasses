@@ -29,16 +29,11 @@ namespace WoH_GameData.DataLoader
                 buffer = JObject.Parse(stream.ReadToEnd());
             }
 
-            JArray array = buffer[GameStrings.EntitiesPairs];
-
-            string type, path;            
+            JArray array = buffer[GameStrings.EntitiesPairs];          
 
             foreach (JObject obj in array)
             {
-                type = obj.Value<string>(GameStrings.Type);
-                path = obj.Value<string>(GameStrings.Path);
-
-                AddStorage(type, path, result);
+                AddStorage(obj.Value<string>(GameStrings.Type), obj.Value<string>(GameStrings.Path), result);
             }
 
             return result;
@@ -71,11 +66,10 @@ namespace WoH_GameData.DataLoader
         {
             ConstructorInfo cInfo = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
 
-            if (cInfo == null) { throw new InvalidOperationException(); } //add gamestrings exception message
+            if (cInfo == null) { throw new InvalidOperationException(type.Name + CodeErrors.TypeNoConstructor); }
 
-            object entity = cInfo.Invoke(new object[] { obj.Value<string>("Id"), obj.Value<string>("Name") }); //add gamestrings params names
+            object entity = cInfo.Invoke(new object[] { obj.Value<string>(GameStrings.Id), obj.Value<string>(GameStrings.Name) });
 
-            //Add all fields!!!
             foreach(PropertyInfo pInfo in type.GetProperties())
             {
                 AddProperty( entity,pInfo, obj, storage);
@@ -86,7 +80,7 @@ namespace WoH_GameData.DataLoader
                 return (GameObject)entity;
             }
             else
-                throw new InvalidOperationException(); //add gamestrings exception message
+                throw new InvalidOperationException(CodeErrors.TypeIsntGameObject);
         }
 
         private void AddProperty( object entity, PropertyInfo pInfo, JObject obj, GameDataStorage storage)
@@ -110,9 +104,7 @@ namespace WoH_GameData.DataLoader
 
                 return;
             }
-
-            
-
+           
             entityType = pInfo.PropertyType;
 
             if (typeof(GameObject).IsAssignableFrom(entityType))
@@ -142,9 +134,11 @@ namespace WoH_GameData.DataLoader
 
         private Type GetTypeByName(string typeName)
         {
-            return typeof(GameDataLoader).Assembly.GetType("WoH_GameData.GameEntities.UnitEntities." + typeName);
+            TypeInfo tInfo = typeof(GameDataLoader).Assembly.DefinedTypes.SingleOrDefault(ti => ti.Name == typeName);
 
-            //Add algorithm to find types in another namespaces
+            if (tInfo == null) { throw new InvalidOperationException(CodeErrors.CantFindType); }
+
+            return tInfo.AsType();
         }
     }
 }

@@ -11,13 +11,14 @@ namespace WoH_classes.BasicClasses
     public class Unit
     {
         public readonly UnitType Type;
+
         public Player Owner { get; set; }
 
         public Hex Position { get; set; }
 
         public HexDirection Direction { get; set; }
 
-        public Unit(WoH_GameData.GameEntities.UnitEntities.UnitType type, Hex pos, Player owner, HexDirection direction)
+        public Unit(UnitType type, Hex pos, Player owner, HexDirection direction)
         {
             Type = type;
             Owner = owner;

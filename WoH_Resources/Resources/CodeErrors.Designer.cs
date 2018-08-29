@@ -79,6 +79,15 @@ namespace WoH_Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can`t find type by name.
+        /// </summary>
+        public static string CantFindType {
+            get {
+                return ResourceManager.GetString("CantFindType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File doesn`t exists..
         /// </summary>
         public static string FileDoesntExists {
@@ -120,6 +129,24 @@ namespace WoH_Resources.Resources {
         public static string NoSuitableMapSize {
             get {
                 return ResourceManager.GetString("NoSuitableMapSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type isn`t inherited from GameObject type.
+        /// </summary>
+        public static string TypeIsntGameObject {
+            get {
+                return ResourceManager.GetString("TypeIsntGameObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  type have no proper constructor.
+        /// </summary>
+        public static string TypeNoConstructor {
+            get {
+                return ResourceManager.GetString("TypeNoConstructor", resourceCulture);
             }
         }
         

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WoH_GameData.GameEntities.UnitEntities
+namespace WoH_GameData.GameEntities.CommonEntities
 {
     public class Race : GameObject
     {

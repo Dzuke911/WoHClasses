@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WoH_GameData.GameEntities.CommonEntities;
 
 namespace WoH_GameData.GameEntities.UnitEntities
 {
