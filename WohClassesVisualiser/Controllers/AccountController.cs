@@ -92,6 +92,16 @@ namespace Woh_Visualiser.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> SignOut()
+        {
+            //string name = User.Identity.Name;
+
+            await _authentication.SignOutAsync();
+
+            return RedirectToAction(nameof(AccountController.Login));
+        }
+
         #region Helpers
 
         private void AddErrors(IdentityResult result)

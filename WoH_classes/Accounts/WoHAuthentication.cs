@@ -34,5 +34,10 @@ namespace WoH_classes.Accounts
             ApplicationUser user = await _userManager.FindByEmailAsync(email);
             await _signInManager.SignInAsync(user,false);
         }
+
+        public async Task SignOutAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }
