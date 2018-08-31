@@ -2,7 +2,14 @@
 
     constructor(props) {
         super(props);
-        this.state = { type: "", data: "" };
+        this.state = { type: "", data: ""};
+
+        this.logout = this.logout.bind(this);
+    }
+
+    logout(e) {
+        e.preventDefault();
+        window.location = this.props.signoutUrl;
     }
 
     render() {
@@ -10,23 +17,8 @@
             <p>InfoPannel</p>
             <p>{this.props.type}</p>
             <p>{this.props.data}</p>
-            <form asp-action="Login" asp-controller="Account" method="post">
-                <div class="form-group">
-                    <label>Email</label>
-                    <label asp-validation-for="Email" class="text-danger"></label>
-                    <input type="text" asp-for="Email" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <label asp-validation-for="Password" class="text-danger"></label>
-                    <input type="password" asp-for="Password" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" asp-for="RememberMe" /><span>Remember me?</span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary form-control" name="Login" value="Login" />
-                </div>
+            <form action={this.props.signoutUrl} method="post" onSubmit={this.logout}>
+                <input type="submit" className="btn btn-primary form-control" name="SignOut" value="SignOut" />
             </form>
         </div>;
     }
