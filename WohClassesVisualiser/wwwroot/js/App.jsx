@@ -11,9 +11,9 @@
     render() {
         return <div>
             <div style={{ position: 'relative', float: 'left', border: '3px solid #000', height: '726px', width: '826px', overflow: 'scroll' }}>
-                <Battlefield apiMapUrl={document.getElementById("GetMapUrl").innerHTML} signoutUrl={document.getElementById("GetSignoutUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
+                <Battlefield apiMapUrl={document.getElementById("GetMapUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
             </div>
-            <InfoPannel type={this.state.type} data={this.state.data} />
+            <InfoPannel signoutUrl={document.getElementById("GetSignoutUrl").innerHTML} type={this.state.type} data={this.state.data} />
         </div>;
     }
 
