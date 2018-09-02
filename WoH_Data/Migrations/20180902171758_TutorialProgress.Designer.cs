@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WoH_Data;
 
 namespace WoH_Data.Migrations
 {
     [DbContext(typeof(WoHDbContext))]
-    partial class WoHDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180902171758_TutorialProgress")]
+    partial class TutorialProgress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

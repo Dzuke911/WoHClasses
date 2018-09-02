@@ -35,7 +35,7 @@ namespace WoH_classes_Tests
             _services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
             _services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
 
-            _services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>(), s.GetService<SignInManager<ApplicationUser>>()));
+            _services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>(), s.GetService<SignInManager<ApplicationUser>>(), s.GetService<WoHDbContext>()));
 
             _services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             _services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));

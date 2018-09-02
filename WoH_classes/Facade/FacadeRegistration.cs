@@ -40,7 +40,7 @@ namespace WoH_classes.Facade
             services.AddTransient<IGameTeamsFactory, GameTeamsFactory>(s => new GameTeamsFactory());
             services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
 
-            services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>() , s.GetService<SignInManager<ApplicationUser>>()));
+            services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>() , s.GetService<SignInManager<ApplicationUser>>(), s.GetService<WoHDbContext>()));
 
             services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));

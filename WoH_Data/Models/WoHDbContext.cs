@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WoH_Data.Models;
 
 namespace WoH_Data
 {
@@ -12,6 +13,8 @@ namespace WoH_Data
         {
 
         }
+
+        public DbSet<UserTutorialProgress> TutorialProgresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
