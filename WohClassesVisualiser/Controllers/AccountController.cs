@@ -102,6 +102,12 @@ namespace Woh_Visualiser.Controllers
             return RedirectToAction(nameof(AccountController.Login));
         }
 
+        //[HttpGet]
+        //public async Task<JObject> Skills()
+        //{
+        //    return await _skillsManager.GetSkills();
+        //}
+
         #region Helpers
 
         private void AddErrors(IdentityResult result)

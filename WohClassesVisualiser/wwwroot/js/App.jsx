@@ -5,7 +5,22 @@
 
         this.onHexClick = this.onHexClick.bind(this);
 
-        this.state = { type: "", data: "" };
+        this.state = { accountData: "", type: "", data: "" };
+    }
+
+    // загрузка данных
+    loadPlayerData() {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", this.props.playerUrl, true);
+        xhr.onload = function () {
+            let data = JSON.parse(xhr.responseText);
+            this.setState({ accountData: data });
+        }.bind(this);
+        xhr.send();
+    }
+
+    componentDidMount() {
+        this.loadPlayerData();
     }
 
     render() {
