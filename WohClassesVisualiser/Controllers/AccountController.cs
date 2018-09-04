@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WoH_classes.AccountData;
 using WoH_classes.Accounts;
 using Woh_Visualiser.Models;
 
@@ -15,10 +17,12 @@ namespace Woh_Visualiser.Controllers
     public class AccountController : Controller
     {
         private readonly IAuthentication _authentication;
+        private readonly IAccountDataManager _accountDataManager;
 
-        public AccountController(IAuthentication authentication)
+        public AccountController(IAuthentication authentication, IAccountDataManager accountDataManager)
         {
             _authentication = authentication;
+            _accountDataManager = accountDataManager;
         }
 
         [HttpGet]
@@ -46,7 +50,7 @@ namespace Woh_Visualiser.Controllers
                 if (result.Succeeded)
                 {
                     //return RedirectToLocal(returnUrl);
-                    return RedirectToAction(nameof(HomeController.Index),"Home");
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
                 if (result.IsLockedOut)
                 {
@@ -102,11 +106,11 @@ namespace Woh_Visualiser.Controllers
             return RedirectToAction(nameof(AccountController.Login));
         }
 
-        //[HttpGet]
-        //public async Task<JObject> Skills()
-        //{
-        //    return await _skillsManager.GetSkills();
-        //}
+        [HttpGet]
+        public async Task<JObject> AccountData()
+        {
+            return await _accountDataManager.GetAccountDataAsync(User.Identity.Name);
+        }
 
         #region Helpers
 

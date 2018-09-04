@@ -11,7 +11,7 @@
     // загрузка данных
     loadPlayerData() {
         let xhr = new XMLHttpRequest();
-        xhr.open("get", this.props.playerUrl, true);
+        xhr.open("get", this.props.accountDataUrl, true);
         xhr.onload = function () {
             let data = JSON.parse(xhr.responseText);
             this.setState({ accountData: data });
@@ -38,6 +38,6 @@
 }
 
 ReactDOM.render(
-    <Application />,
+    <Application accountDataUrl={document.getElementById("AccountDataUrl").innerHTML}/>,
     document.getElementById("BattlefieldFrame")
 );

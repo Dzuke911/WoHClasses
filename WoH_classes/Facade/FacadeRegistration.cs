@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WoH_classes.AccountData;
 using WoH_classes.Accounts;
 using WoH_classes.BasicClasses;
 using WoH_classes.DataManagers;
@@ -41,6 +42,7 @@ namespace WoH_classes.Facade
             services.AddTransient<IGameUnitsManager, GameUnitsManager>(s => new GameUnitsManager());
 
             services.AddTransient<IAuthentication, WoHAuthentication>(s => new WoHAuthentication(s.GetService<UserManager<ApplicationUser>>() , s.GetService<SignInManager<ApplicationUser>>(), s.GetService<WoHDbContext>()));
+            services.AddTransient<IAccountDataManager, AccountDataManager>(s => new AccountDataManager(s.GetService<UserManager<ApplicationUser>>(), s.GetService<WoHDbContext>()));
 
             services.AddTransient<IGamePlayersManager, GamePlayersManager>(s => new GamePlayersManager(s.GetService<IGameTeamsFactory>()));
             services.AddTransient<IGameManagersFactory, GameManagersFactory>(s => new GameManagersFactory(s.GetService<IGameTeamsFactory>()));
