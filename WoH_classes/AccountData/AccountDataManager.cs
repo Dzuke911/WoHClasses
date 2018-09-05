@@ -33,11 +33,11 @@ namespace WoH_classes.AccountData
 
             if (utp == null) { throw new InvalidOperationException(); } //////////////!!!!!!!!!!!!!!!!!!!!!
 
-            bool tutorialComplete = utp.Progress <= 6; ///////////////////!!!!!!!!!!!!!!!!!!! not hardcoded, but grabbed from game defaults
+            bool tutorialComplete = utp.Progress >= 6; ///////////////////!!!!!!!!!!!!!!!!!!! not hardcoded, but grabbed from game defaults
 
             JObject result = new JObject{
-                { "Progress", utp.Progress },
-                { "Complete", tutorialComplete },
+                { "TutorialProgress", utp.Progress },
+                { "TutorialComplete", tutorialComplete },
                 { "Name", userName }
             };
 

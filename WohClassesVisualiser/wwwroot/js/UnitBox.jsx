@@ -1,4 +1,6 @@
-﻿class UnitBox extends React.Component {
+﻿var React = require('react');
+
+class UnitBox extends React.Component {
 
     constructor(props) {
         super(props)
@@ -62,3 +64,5 @@
     }
 
 }
+
+module.exports = UnitBox;

@@ -1,4 +1,7 @@
-﻿class UnitsLayer extends React.Component {
+﻿var React = require('react');
+var UnitBox = require('./UnitBox.jsx');
+
+class UnitsLayer extends React.Component {
 
     constructor(props) {
         super(props)
@@ -57,3 +60,5 @@
 
     }
 }
+
+module.exports = UnitsLayer;

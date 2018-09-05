@@ -1,4 +1,6 @@
-﻿class HexFrame extends React.Component {
+﻿var React = require('react');
+
+class HexFrame extends React.Component {
 
     constructor(props) {
         super(props);        
@@ -40,3 +42,5 @@
         return <polygon points={pts} onClick={this.click} hexid={this.props.hexId} xcoord={this.props.xCoord} ycoord={this.props.yCoord} style={{ strokeOpacity: '0.3', fillOpacity: '0.0', stroke: 'black', strokeWidth: '1' }} />;
     }
 }
+
+module.exports = HexFrame;

@@ -1,4 +1,6 @@
-﻿class InfoPannel extends React.Component {
+﻿var React = require('react');
+
+class InfoPannel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,3 +25,5 @@
         </div>;
     }
 }
+
+module.exports = InfoPannel;

@@ -1,4 +1,8 @@
-﻿class Battlefield extends React.Component {
+﻿var React = require('react');
+var HexFrame = require('./HexFrame.jsx');
+var UnitLayer = require('./UnitsLayer.jsx');
+
+class Battlefield extends React.Component {
 
     constructor(props) {
         super(props);
@@ -143,3 +147,5 @@
 
     }
 }
+
+module.exports = Battlefield;

@@ -1,11 +1,20 @@
-﻿class Application extends React.Component {
+﻿var ReactDOM = require('react-dom');
+var React = require('react');
+var Battlefield = require('./Battlefield.jsx');
+var InfoPannel = require('./InfoPannel.jsx');
+var MainMenu = require('./MainMenu.jsx');
+
+class Application extends React.Component {
 
     constructor(props) {
         super(props);
 
+        let onloadState = { showMenu: true, showBattlefield: false };
+        let emptyAccountData = {TutorialComplete : true };
+
         this.onHexClick = this.onHexClick.bind(this);
 
-        this.state = { accountData: "", type: "", data: "" };
+        this.state = { accountData: emptyAccountData, type: "", appState: onloadState, data: "" };
     }
 
     // загрузка данных
@@ -19,25 +28,39 @@
         xhr.send();
     }
 
-    componentDidMount() {
+    //componentDidMount() {
+    //    this.loadPlayerData();
+    //}
+
+    componentWillMount() {
         this.loadPlayerData();
     }
 
     render() {
         return <div>
-            <div style={{ position: 'relative', float: 'left', border: '3px solid #000', height: '726px', width: '826px', overflow: 'scroll' }}>
-                <Battlefield apiMapUrl={document.getElementById("GetMapUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
+            {this.state.appState.showBattlefield && <div>
+                < div style={{ position: 'relative', float: 'left', border: '3px solid #000', height: '726px', width: '826px', overflow: 'scroll' }}>
+                    <Battlefield apiMapUrl={document.getElementById("GetMapUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
+                </div>
+                <InfoPannel signoutUrl={document.getElementById("GetSignoutUrl").innerHTML} type={this.state.type} data={this.state.data} />
             </div>
-            <InfoPannel signoutUrl={document.getElementById("GetSignoutUrl").innerHTML} type={this.state.type} data={this.state.data} />
+            }
+            {this.state.appState.showMenu && <MainMenu onMenuItemClick={this.onMenuItemClick} accountData={this.state.accountData} />}
         </div>;
     }
 
     onHexClick(newType, newData) {
         this.setState({ type: newType, data: newData });
     }
+
+    onMenuItemClick(itemName) {
+        if (itemName == "Tutorial") {
+            window.alert("tutorial pressed");
+        }
+    }
 }
 
 ReactDOM.render(
-    <Application accountDataUrl={document.getElementById("AccountDataUrl").innerHTML}/>,
+    <Application accountDataUrl={document.getElementById("AccountDataUrl").innerHTML} />,
     document.getElementById("BattlefieldFrame")
 );
