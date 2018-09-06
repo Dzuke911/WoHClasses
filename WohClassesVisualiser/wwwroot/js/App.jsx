@@ -3,6 +3,7 @@ var React = require('react');
 var Battlefield = require('./Battlefield.jsx');
 var InfoPannel = require('./InfoPannel.jsx');
 var MainMenu = require('./MainMenu.jsx');
+var MenuItemPressedEnum = require('./MenuItemPressedEnum.js');
 
 class Application extends React.Component {
 
@@ -42,7 +43,7 @@ class Application extends React.Component {
                 < div style={{ position: 'relative', float: 'left', border: '3px solid #000', height: '726px', width: '826px', overflow: 'scroll' }}>
                     <Battlefield apiMapUrl={document.getElementById("GetMapUrl").innerHTML} xMax="0" yMax="0" onhexclick={this.onHexClick} />
                 </div>
-                <InfoPannel signoutUrl={document.getElementById("GetSignoutUrl").innerHTML} type={this.state.type} data={this.state.data} />
+                <InfoPannel type={this.state.type} data={this.state.data} />
             </div>
             }
             {this.state.appState.showMenu && <MainMenu onMenuItemClick={this.onMenuItemClick} accountData={this.state.accountData} />}
@@ -53,9 +54,17 @@ class Application extends React.Component {
         this.setState({ type: newType, data: newData });
     }
 
-    onMenuItemClick(itemName) {
-        if (itemName == "Tutorial") {
+    onMenuItemClick(menuItemPressed) {
+
+        if (menuItemPressed == MenuItemPressedEnum.tutorial) {
             window.alert("tutorial pressed");
+        }
+
+        if (menuItemPressed == MenuItemPressedEnum.logout) {
+
+            let signoutUrl = document.getElementById("GetSignoutUrl").innerHTML;
+
+            window.location = signoutUrl;
         }
     }
 }

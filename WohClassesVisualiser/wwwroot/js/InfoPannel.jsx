@@ -5,13 +5,6 @@ class InfoPannel extends React.Component {
     constructor(props) {
         super(props);
         this.state = { type: "", data: ""};
-
-        this.logout = this.logout.bind(this);
-    }
-
-    logout(e) {
-        e.preventDefault();
-        window.location = this.props.signoutUrl;
     }
 
     render() {
@@ -19,9 +12,6 @@ class InfoPannel extends React.Component {
             <p>InfoPannel</p>
             <p>{this.props.type}</p>
             <p>{this.props.data}</p>
-            <form action={this.props.signoutUrl} method="post" onSubmit={this.logout}>
-                <input type="submit" className="btn btn-primary form-control" name="SignOut" value="SignOut" />
-            </form>
         </div>;
     }
 }
