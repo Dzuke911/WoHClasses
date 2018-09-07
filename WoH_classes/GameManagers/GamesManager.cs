@@ -9,7 +9,7 @@ namespace WoH_classes.GameManagers
 {
     public class GamesManager : IGamesManager
     {
-        private int _lastGameId = 0;
+        private int _lastGameId = 0; // then should start from last created in database
         private readonly List<IGame> _games;
         private readonly IGamesFactory _gamesFactory;
 

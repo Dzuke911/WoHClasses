@@ -13,7 +13,9 @@ namespace WoH_classes.DataManagers
 {
     public class GameDefaultsManager : IGameDefaultsManager
     {
-        private static Dictionary<int, int> _defaultMapSizes;
+        private Dictionary<int, int> _defaultMapSizes;
+
+        private string _defaultTutorialFilePath;
 
         public GameDefaultsManager(string filePath)
         {
@@ -42,6 +44,8 @@ namespace WoH_classes.DataManagers
             }
 
             _defaultMapSizes = mapSizes;
+
+            _defaultTutorialFilePath = (string)buffer["DefaultTutorial"];
         }
 
         public MapShape GetDefaultMapShape(int playersCount)

@@ -9,5 +9,6 @@
       "PlayersCount": 4,
       "MapSize": 12
     }
-  ]
+  ],
+  "DefaultTutorial": "GameData/DefaultMaps/DefaultTutorial.json"
 }
